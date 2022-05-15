@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" a href="	https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{%static 'css/registration.css'%}">
+    <title>Registration</title>
+</head>
+<body>
+    <div class="container bg-white pb-5">
+        <div class="row d-flex justify-content-start align-items-center mt-sm-5">
+            <div class="col-lg-5 col-10">
+                <div class="pb-10"> <img src="{% static 'img/im.png' %}" alt=""> </div>
+            </div>
+            <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
+                <div class="pt-4">
+                    <h6>Learner's Pro</h6>
+                </div>
+                <div class="mt-3 mt-md-3">
+                    <h5>Register Here For Free</h5>
+                    <form class="pt-2" action="/studentregister" method="POST">
+                        {% csrf_token %}
+                        <div class="wrap"><div class="d-flex flex-column pb-3"> <div class="f1"><label for="email">First Name:</label> <input type="text" name="student_firstname" id="firstname" class="border-bottom border-success"> </div></div>
+                        <div class="d-flex flex-column pb-3"> <div class="f2"><label for="email">Last Name:</label> <input type="text" name="student_lastname" id="lastname" class="border-bottom border-success"> </div></div></div>
+                        <div class="d-flex flex-column pb-3"> <label for="email">Username:</label> <input type="text" name="username" id="username" class="border-bottom border-success"> </div>
+                        <div class="d-flex flex-column pb-3"> <label for="email">Phone Number:</label> <input type="text" name="phone_number" id="number" class="border-bottom border-success"> </div>
+                        <div class="d-flex flex-column pb-3"> <label for="email">Email Address:</label> <input type="email" name="email" id="emailId" class="border-bottom border-success"> </div>
+                        <div class="d-flex flex-column pb-3"> <label for="password">Password:</label> <input type="password" name="password" id="pwd" class="border-bottom border-success"> </div>
+                        <div class="d-flex flex-column pb-3"> <label for="password">Confirm Password:</label> <input type="password" name="student_confirmpassword" id="confirmpassword" class="border-bottom border-success"> </div>
+                        <div class="d-flex jusity-content-end pb-2">
+
+                        </div> <input type="Submit" value="Submit" class="btn btn-success btn-block mb-3">
+                 
+                            <p class="p1">Already have an account? <a href="/studentlogin">Click Here!!</a></p>
+                            <p> <b>For Teachers  who want to use the platform, send us an email at: learnerspro@gmail.com</b></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
