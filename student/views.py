@@ -10,6 +10,9 @@ from django.contrib import messages
 from student.forms import StudentForm
 # Create your views here.
 def studentdashboard(request):
+<<<<<<< HEAD
+    return render(request,"student/landingpage.html")
+=======
     return render(request,"student/landingpage.html")
 
 def register(request):
