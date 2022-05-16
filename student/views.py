@@ -10,9 +10,6 @@ from django.contrib import messages
 from student.forms import StudentForm
 # Create your views here.
 def studentdashboard(request):
-<<<<<<< HEAD
-    return render(request,"student/landingpage.html")
-=======
     return render(request,"student/landingpage.html")
 
 def register(request):
@@ -38,4 +35,3 @@ def login(request):
             messages.error(request, "bad credentials")
             return redirect('/admin/adminlogin')
     return render(request, 'reglogin/login.html')
->>>>>>> 9ce82703edd49e8d7d9918e6e12bfef302f719dc
