@@ -35,7 +35,3 @@ def login(request):
             messages.error(request, "bad credentials")
             return redirect('/admin/adminlogin')
     return render(request, 'reglogin/login.html')
-<<<<<<< HEAD
-
-=======
->>>>>>> 03dee72730a9fa2476797f3887310706bc2ebdcf
