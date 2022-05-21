@@ -35,3 +35,13 @@ def login(request):
             messages.error(request, "bad credentials")
             return redirect('/admin/adminlogin')
     return render(request, 'reglogin/login.html')
+
+def userprofile(request):
+    student=student.objects.get(id=request.session['id'])
+    return render(request,"student/userprofile.html",{'users':[student]})
+
+def update(request,p_id):
+    Student=student.objects.get(id=p_id)
+    form=StudentForm(request.POST, instance=student)
+    form.save()
+    return redirect("/userprofile")
