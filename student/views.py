@@ -23,15 +23,32 @@ def register(request):
         form = StudentForm()
     return render(request, "reglogin/registration.html", {'form': form})
 
-def login(request):
-    if request.method == 'POST':
-        un = request.POST['username']
-        pw = request.POST['password']
-        user = auth.authenticate(username=un, password=pw)
-        if user is not None:
-            auth.login(request, user)
-            return redirect('/studentdashboard')
-        else:
-            messages.error(request, "bad credentials")
-            return redirect('/admin/adminlogin')
-    return render(request, 'reglogin/login.html')
+def studentlogin(request):
+    print("12345")
+    if request.method=='POST':
+        print(request)
+        print("1")
+        username=request.POST["username"]
+        password=request.POST["password"]
+        try:
+            user=Student.objects.get(username=username,password=password)
+            print(user)
+            if user is not None:
+                request.session['username']=request.POST['username']
+                request.session['password']=request.POST['password'] 
+                print("1")
+                return render(request,"student/landingpage.html")
+                
+        except:
+                print("2")
+                messages.error(request, 'Please enter correct username and password')
+                return render(request,"reglogin/login.html")
+    else:
+        form=StudentForm()
+        print("invalid")
+    return render(request,"reglogin/login.html",{'form':form}) 
+
+def logout(request):
+    request.session.clear()
+    return redirect('/')
+
