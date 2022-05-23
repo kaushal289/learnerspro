@@ -1,0 +1,40 @@
+body {
+    background:antiquewhite;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #92e3a9;
+  }
+  
+  .profile-button {
+    background: #92e3a9;
+    box-shadow: none;
+    border: none
+  }
+  
+  .profile-button:hover {
+    background: #92e3a9
+  }
+  
+  .profile-button:focus {
+    background: #92e3a9;
+    box-shadow: none
+  }
+  
+  .profile-button:active {
+    background: #92e3a9;
+    box-shadow: none
+  }
+  
+  .back:hover {
+    color: #92e3a9;
+    cursor: pointer
+  }
+  
+  .labels {
+    font-size: 16px;
+  }
+  .container{
+    width: 1000px;
+  }
