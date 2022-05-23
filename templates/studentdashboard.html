@@ -39,7 +39,7 @@
                             <a class="btn" href="/#about" id="ab">About</a> 
                             <a class="btn" href="/#contact">Contact</a> 
                         </div>
-                        {% if request.session.customer_id %}
+                        {% if request.session.username %}
                         <sn class="login col-lg-5 d-flex justify-content-end" >
                             <span class="dropdown d-flex justify-content-center">
                                 <a class="dropbtn1" for="btnControl">{{request.session.username}}<i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
@@ -52,8 +52,6 @@
                                 </i>logout</button></a>
                             </span>
                         </span>
-                            
-                            
                         </div>
                         {% else %}
                         <div class="login col-lg-5">
