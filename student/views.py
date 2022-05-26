@@ -52,3 +52,5 @@ def logout(request):
     request.session.clear()
     return redirect('/')
 
+def studentsubject(request):
+    return render(request, "student/studentsubject.html")
