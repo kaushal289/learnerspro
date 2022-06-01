@@ -23,7 +23,9 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_str, force_bytes, DjangoUnicodeDecodeError
 from django.core.mail import EmailMessage
 from django.contrib.auth import logout as do_logout
-# Create your views here.
+
+
+
 def studentdashboard(request):
     
     # print (request.session.username)
@@ -72,6 +74,7 @@ def studentlogin(request):
                 request.session['password']=request.POST['password'] 
                 request.session['teacher_id']=teacher.teacher_id
                 return render(request,"teacher/addsubject.html")
+           
             
         except:
             try:
@@ -98,6 +101,7 @@ def studentlogin(request):
                     Pass 
                 messages.error(request, 'Please enter correct username and password')
                 return render(request,"reglogin/login.html")
+  
             
     else:
         form=StudentForm()
@@ -164,6 +168,7 @@ def class7science(request):
     users=Student.objects.get(student_id=request.session['student_id'])
     sciences=Course.objects.raw("select * from course where std_class='7' and subject='Science'")
     return render(request, "class7/class7science.html",{'users':[users],'sciences':sciences})
+
 
 @Authentication.valid_user
 def class8science(request):
@@ -283,6 +288,7 @@ def class10social(request):
     users=Student.objects.get(student_id=request.session['student_id'])
     socials=Course.objects.raw("select * from course where std_class='10' and subject='Social studies'")
     return render(request, "class10/class10social.html",{'users':[users],'socials':socials})
+
 
 @Authentication.valid_user
 def class7account(request):

@@ -68,6 +68,7 @@ def addteacher(request):
         form = TeacherForm()
     return render(request, "admin/addteacher.html", {'form': form})
 
+
 def teacherview(request):
     if (request.method == "POST"):
         page = int(request.POST['page'])
