@@ -5,42 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" a href="	https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{%static 'css/registration.css'%}">
+    <link rel="stylesheet" href="{% static 'css/studentregistration.css'%}">
+    <script defer src="{% static 'js/studentregistration.js'%}"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Registration</title>
 </head>
 <body>
-    <div class="container bg-white pb-5">
-        <div class="row d-flex justify-content-start align-items-center mt-sm-5">
-            <div class="col-lg-5 col-10">
-                <div class="pb-10"> <img src="{% static 'img/im.png' %}" alt=""> </div>
+    <div class="container">
+        
+        <div class="form">
+            <div class="heading">
+                <h1>Register here for free</h1>
             </div>
-            <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
-                <div class="pt-4">
-                    <h6>Learner's Pro</h6>
+            <form id="form" action="/studentregister " method="post">
+            {% csrf_token %}
+            <div class="wrap" id="form">
+                <div class="first">
+                    <label>First Name:</label>
+                    <input name="student_firstname" id="name" type="text" placeholder="Enter your First Name">
+                    <span class="focus-input"></span>
                 </div>
-                <div class="mt-3 mt-md-3">
-                    <h5>Register Here For Free</h5>
-                    <form class="pt-2" action="/studentregister" method="POST">
-                        {% csrf_token %}
-                        <div class="wrap"><div class="d-flex flex-column pb-3"> <div class="f1"><label for="email">First Name:</label> <input type="text" name="student_firstname" id="firstname" class="border-bottom border-success"> </div></div>
-                        <div class="d-flex flex-column pb-3"> <div class="f2"><label for="email">Last Name:</label> <input type="text" name="student_lastname" id="lastname" class="border-bottom border-success"> </div></div></div>
-                        <div class="d-flex flex-column pb-3"> <label for="email">Username:</label> <input type="text" name="username" id="username" class="border-bottom border-success"> </div>
-                        <div class="d-flex flex-column pb-3"> <label for="email">Phone Number:</label> <input type="text" name="phone_number" id="number" class="border-bottom border-success"> </div>
-                        <div class="d-flex flex-column pb-3"> <label for="email">Email Address:</label> <input type="email" name="email" id="emailId" class="border-bottom border-success"> </div>
-                        <div class="d-flex flex-column pb-3"> <label for="password">Password:</label> <input type="password" name="password" id="pwd" class="border-bottom border-success"> </div>
-                        <div class="d-flex flex-column pb-3"> <label for="password">Confirm Password:</label> <input type="password" name="student_confirmpassword" id="confirmpassword" class="border-bottom border-success"> </div>
-                        <div class="d-flex jusity-content-end pb-2">
-
-                        </div> <input type="Submit" value="Submit" class="btn btn-success btn-block mb-3">
-                 
-                            <p class="p1">Already have an account? <a href="/studentlogin">Click Here!!</a></p>
-                            <p> <b>For Teachers  who want to use the platform, <a href="/teacherregister">Register Here!!</a> </b></p>
-                        </div>
-                    </form>
+                <div class="last">
+                    <label>Last Name:</label>
+                    <input name="student_lastname" id="lname" type="text" placeholder="Enter your Last Name">
+                    <span class="focus-input"></span>
                 </div>
             </div>
+            <div class="wrap1">
+                <label>Username:</label>
+                <input name="username" id="username" type="text" placeholder="Enter a username">
+                <span class="focus-input"></span>
+                <div id ="emailerror"></div>
+            </div>
+            <div class="wrap1">
+                <label>Email:</label>
+                <input name="email" id="email" type="email" placeholder="Enter your Email Address">
+                <span class="focus-input"></span>
+                <div id ="emailerror"></div>
+            </div>
+            <div class="wrap1">
+                <label>Phone Number:</label>
+                <input name="phone_number" id="number" type="number" placeholder="Enter your phonenumber">
+                <span class="focus-input"></span>
+                <div id ="numbererror"></div>
+            </div>
+            <div class="wrap" id="form">
+                <div class="first">
+                    <label>Password:</label>
+                    <input name="password" id="password" type="password" placeholder="Enter a password">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="last">
+                    <label>Confirm Password:</label>
+                    <input name="student_confirmpassword" id="confirmpassword" type="password" placeholder="Confirm your password">
+                    <span class="focus-input"></span>
+                </div>
+            </div>
+            <div id ="nameerror"></div>
+            <button class="btn" type="submit" value="submit">Create my account</button>
+            <p>Already have an account? <a href="/studentlogin"><b>Login</b></a></p>
+            <p>For Teachers  who want to use the platform, <b><a href="/teacherregister">Register Here!!</a></b></p>
+        </div>
+        <div class="image">
+            <img src="{% static 'img/im.png' %}" class="img" alt=""/>
         </div>
     </div>
+</form>
 </body>
 </html>
