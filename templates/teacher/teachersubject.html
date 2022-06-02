@@ -1,0 +1,100 @@
+{% extends "teacherdashboard.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font Awesome Cdn -->
+	<script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+
+	<!-- font Awesome Cdn -->
+	<script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap cdn -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/teachersubject.css' %}">
+    <title>Subject</title>
+</head>
+<body>
+    <div class="super_container">
+        <div class="banner">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/science.png);">
+							<div class="banner_category">
+								<a href="#">Science</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/social.png);">
+							<div class="banner_category">
+								<a href="#">Social Studies</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center" 
+                            style="background-image: url(/static/img/maths.png);">
+							<div class="banner_category">
+								<a href="#">Maths</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+        <div class="banner1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/english.png);">
+							<div class="banner_category">
+								<a href="#">English</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/account.png);">
+							<div class="banner_category">
+								<a href="#">Accounts</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center" 
+                            style="background-image: url(/static/img/computer.png);">
+							<div class="banner_category">
+								<a href="#">Computer</a>
+							</div>
+						</div>
+						<div class="card-body">
+							<a href="{% url 'deletesubject' eachProduct.id %}" class="btn btn-danger m-1"> Delete </a>
+                            <a href="{% url 'updatesubject' eachProduct.id %}" class="btn btn-primary m-1"> Update </a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+    </div>
+    
+``
+
+</body>
+</html>
+{% endblock %}
