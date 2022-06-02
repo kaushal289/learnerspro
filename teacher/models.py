@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Teacher(models.Model):
-    id=models.AutoField(auto_created=True, primary_key=True)
+    teacher_id=models.AutoField(auto_created=True, primary_key=True)
     teacher_firstname=models.CharField(max_length=100)
     teacher_lastname=models.CharField(max_length=200)
     username=models.CharField(max_length=100)
