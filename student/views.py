@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
 from student.forms import StudentForm
+from teacher.models import Teacher
 # Create your views here.
 def studentdashboard(request):
     return render(request,"student/landingpage.html")
@@ -38,11 +39,22 @@ def studentlogin(request):
                 request.session['password']=request.POST['password'] 
                 print("1")
                 return render(request,"student/landingpage.html")
-                
         except:
-                print("2")
+            print("2")
+            try:  
+                print("3")
+                teacher=Teacher.objects.get(username=username,password=password)
+                print(teacher)
+                request.session['username']=request.POST['username']
+                request.session['password']=request.POST['password']
+                print(request.session['username'])
+                request.session['teacher_id']=teacher.teacher_id
+                print(request.session['password'])
+                return render(request,"teacher/landingpage.html")
+            except:
+                print("error")
                 messages.error(request, 'Please enter correct username and password')
-                return render(request,"reglogin/login.html")
+                return render(request,"reglogin/login.html") 
     else:
         form=StudentForm()
         print("invalid")
