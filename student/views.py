@@ -37,7 +37,7 @@ def studentlogin(request):
             if user is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
-                print("1")
+                request.session['student_id']=Student.student_id
                 return render(request,"student/landingpage.html")
         except:
             print("2")
@@ -64,5 +64,13 @@ def logout(request):
     request.session.clear()
     return redirect('/')
 
+<<<<<<< HEAD
+def profile(request):
+    users=Student.objects.get(username=request.session['username'])
+    return render(request,"student/profile.html",{'users':[users]})
+
+
+=======
 def studentsubject(request):
     return render(request, "student/studentsubject.html")
+>>>>>>> 885fba9f041c70726c7f4f0dfe0ec7378587f4df
