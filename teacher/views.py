@@ -14,3 +14,34 @@ def register(request):
         form = TeacherForm()
     return render(request, "reglogin/teacherregistration.html", {'form': form})
 
+def teacherdashboard(request):
+    return render(request,"teacher/landingpage.html")
+<<<<<<< HEAD
+
+def teachersubject(request):
+    return render(request, "teacher/teachersubject.html")
+
+def logout(request):
+    request.session.clear()
+    return redirect('/')
+
+def addsubject(request):
+    form = teachersubject()
+    if request.method == 'POST':
+        form = teachersubject(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('showsubjects')
+    else:
+        form = teachersubject()
+
+   
+    context = {
+        "form":form
+    }
+
+    return render(request, 'addsubject.html', context)
+
+
+=======
+>>>>>>> 91b04a5412e80f3a98e0d45fe4c4e84be1774a7d
