@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from numpy import product
 from teacher.models import Teacher
 from teacher.forms import TeacherForm
 
@@ -16,14 +15,17 @@ def register(request):
     return render(request, "reglogin/teacherregistration.html", {'form': form})
 
 def teacherdashboard(request):
-    return render(request, "teacherdashboard.html")
+    return render(request,"teacher/landingpage.html")
 
 def teachersubject(request):
     return render(request, "teacher/teachersubject.html")
 
+def logout(request):
+    request.session.clear()
+    return redirect('/')
+
 def addsubject(request):
     form = teachersubject()
-    
     if request.method == 'POST':
         form = teachersubject(request.POST, request.FILES)
         if form.is_valid():
@@ -38,31 +40,5 @@ def addsubject(request):
     }
 
     return render(request, 'addsubject.html', context)
-
-def updatesubject(request,pk):
-    subject = subject.objects.get(id=pk)
-    form = teachersubject(instance=product)
-    
-    if request.method == "POST":
-        form = teachersubject(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            return redirect('teachersubject')
-        
-    
-
-    context = {
-        "form":form
-    }
-
-    return render(request, 'updatesubject.html', context)
-
-def deletesubject(request, pk):
-    subject = subject.objects.get(id=pk)
-    subject.delete()
-    return redirect('teachersubject')
-
-
-
 
 

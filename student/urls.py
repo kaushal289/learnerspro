@@ -7,5 +7,10 @@ urlpatterns = [
     path('studentregister',views.register, name="studentregister"),
     path('studentlogin',views.studentlogin,name="studentlogin"),
     path('logout',views.logout,name='logout'),
+<<<<<<< HEAD
 ]
 
+=======
+    
+]
+>>>>>>> 0dbb72373c7cb5b26df76361178695293155c0bf
