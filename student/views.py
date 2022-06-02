@@ -48,6 +48,7 @@ def studentlogin(request):
         print("invalid")
     return render(request,"reglogin/login.html",{'form':form}) 
 
+
 def logout(request):
     request.session.clear()
     return redirect('/')
