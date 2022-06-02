@@ -16,7 +16,6 @@ def register(request):
 
 def teacherdashboard(request):
     return render(request,"teacher/landingpage.html")
-<<<<<<< HEAD
 
 def teachersubject(request):
     return render(request, "teacher/teachersubject.html")
@@ -43,5 +42,3 @@ def addsubject(request):
     return render(request, 'addsubject.html', context)
 
 
-=======
->>>>>>> 91b04a5412e80f3a98e0d45fe4c4e84be1774a7d
