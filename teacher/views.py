@@ -14,3 +14,5 @@ def register(request):
         form = TeacherForm()
     return render(request, "reglogin/teacherregistration.html", {'form': form})
 
+def teacherdashboard(request):
+    return render(request,"teacher/landingpage.html")
