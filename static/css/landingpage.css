@@ -1,13 +1,3 @@
-body
-    {
-        background: #fff;
-        font-family: 'Open Sans', sans-serif;
-        font-weight: 300;
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow-x: hidden;
-    }
 
 .white a {
 	color: #fff;
@@ -57,90 +47,11 @@ img
     width: 1000px;
   }
 }
-.preloader
-    {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 99999;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-flow: row nowrap;
-            -ms-flex-flow: row nowrap;
-                flex-flow: row nowrap;
-        -webkit-align-items: center;
-            -ms-flex-align: center;
-                align-items: center;
-        background: none repeat scroll 0 0 #fff;
-    }
-.sk-spinner-rotating-plane.sk-spinner
-    {
-         width: 30px;
-        height: 30px;
-        background-color: #28a7e9;
-         margin: 0 auto;
-        -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
-                animation: sk-rotatePlane 1.2s infinite ease-in-out;
-     }
-
-@-webkit-keyframes sk-rotatePlane {
-  0% {
-         -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-                 transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-
-  50% {
-        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-                transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-
-  100% {
-            -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-                    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
-
-@keyframes sk-rotatePlane {
-  0% {
-         -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-                 transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
-
-  50% {
-        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-                transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
-
-  100% {
-            -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-                    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
-#home
-    {
-    /* background: url('../img/') no-repeat; */
-    background-size: cover;
-    color: #fff;
-    margin-top: 70px;
-    text-align: center;
-    width: 200%;
-    }
-#home p
-    {
-        font-weight: 400;
-        font-style: italic;
-        line-height: 2em;
-    }
-#home img
-    {
-        display: inline-block;
-        margin-top: 50px;
-    }
 #divider
     {
         text-align: center;
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-#divider .fa
-    {
-        color: #e96628;
-        font-size: 60px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 #divider h3
     {
@@ -149,8 +60,8 @@ img
 #feature
     {
         background: #f8f8f8;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 #feature p
     {
@@ -162,7 +73,7 @@ img
     }
 #feature .fa
     {
-        background: #e96628;
+        background: #649bf5;
         border-radius: 50%;
         color: #fff;
         display: inline-block;
@@ -174,8 +85,8 @@ img
     }
 #feature1
     {
-        padding-top: 60px;
-        padding-bottom: 60px;
+            padding-top: 40px;
+        padding-bottom: 40px;
     }
 #feature1 p
     {
@@ -187,7 +98,7 @@ img
     }
 #feature1 .fa
     {
-        background: #eb763f;
+        background: #649bf5;
         border-radius: 50%;
         color: #fff;
         display: inline-block;
@@ -258,74 +169,37 @@ img
     background: #0724b7;
     color: #fff;
 }
-#download
-    {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-#download h2
-    {
-        padding-bottom: 20px;
-    }
-#download .btn
-    {
-        border-radius: 0px;
-        font-weight: bold;
-        margin-top: 20px;
-        padding: 10px 40px 10px 40px;
-    }
 #contact
     {
         background: url('../img/contact-bg.jpeg') no-repeat;
         background-size: cover;
         color: #fff;
+        height: 510px;
+
     }
 #contact h2
     {
-        padding-bottom: 10px;
+        padding-bottom: 0px;
+
     }
-#contact address
-    {
-        padding-top: 20px;
-    }
+
 #contact address .fa
     {
-        background: #e96628;
+        background: #2185dd;
         border-radius: 50%;
         width: 40px;
         height: 40px;
         line-height: 40px;
         text-align: center;
-        margin-top: 6px;
-        margin-right: 10px;
+        margin-top: 5px;
+        margin-right: 5px;
     }
-#contact .contact-form
-    {
-        padding-top: 40px;
-    }
-#contact .form-control
-    {
-        border: none;
-        border-radius: 0px;
-        box-shadow: none;
-        margin-bottom: 20px;
-    }
-#contact input
-    {
-        height: 50px;
-    }
-#contact input[type="submit"]
-    {
-        background: #e96628;
-        color: #fff;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
-#contact input[type="submit"]:hover {
-    background: #e96628;
-}
+    h2 {
+        font-size: 30px;
+        color: #000000;
 
-footer
+      }
+.footer
     {
         background: #fff;
         font-weight: 400;
@@ -368,3 +242,4 @@ footer
             padding-bottom: 40px;
         }
 }
+
