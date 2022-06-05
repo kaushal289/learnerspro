@@ -6,8 +6,8 @@ var intonumber = parseInt(document.getElementById('name'))
 const phnumber = document.getElementById('number')
 const username = document.getElementById('username')
 const email = document.getElementById('email')
-const password = document.getElementById('password')
-const confirmpassword = document.getElementById('confirmpassowrd')
+const password = document.querySelector("#password")
+const confirmpassword = document.querySelector("#confirmpassword")
 
 
 form.addEventListener('submit' ,(e)  => {
@@ -48,7 +48,7 @@ form.addEventListener('submit' ,(e)  => {
         messages.push("Please confirm your password.")
         confirmpassword.style.border+"solid 4px red"
     }
-    else if(password!=confirmpassword){
+    else if(password.value!=confirmpassword.value){
         messages.push("Passwords don't match.")
         confirmpassword.style.border="solid 4px red"
     }

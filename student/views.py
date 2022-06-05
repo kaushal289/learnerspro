@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import render
 from pprint import pprint
 from django.http import request
@@ -9,6 +10,7 @@ from django.contrib import auth
 from django.contrib import messages
 from student.forms import StudentForm
 from teacher.models import Teacher
+from django.contrib import messages, auth
 # Create your views here.
 def studentdashboard(request):
     return render(request,"student/landingpage.html")
@@ -31,25 +33,25 @@ def studentlogin(request):
         username=request.POST["username"]
         password=request.POST["password"]
         try:
-            user=Student.objects.get(username=username,password=password)
-            print(user)
-            if user is not None:
+            teacher=Teacher.objects.get(username=username,password=password)
+            print(teacher)
+            if teacher is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
-                print("1")
-                request.session['student_id']=user.student_id
-                return render(request,"student/landingpage.html")
+                return render(request,"teacher/landingpage.html")
                 
         except:
             try:  
-                teacher=Teacher.objects.get(username=username,password=password)
+                user=Student.objects.get(username=username,password=password)
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password']
-                request.session['teacher_id']=teacher.teacher_id
-                return render(request,"teacher/landingpage.html")
+                request.session['student_id']=user.student_id
+                print("1")
+                request.session['student_id']=user.student_id
+                return render(request,"student/landingpage.html")
             except:
                 messages.error(request, 'Please enter correct username and password')
-                return render(request,"auth/login.html")
+                return render(request,"reglogin/login.html")
     else:
         form=StudentForm()
         print("invalid")
@@ -77,6 +79,9 @@ def profileupdate(request,s_id):
     request.session['username']=request.POST['username']
     users=Student.objects.get(student_id=s_id)
     return render(request,"student/profile.html",{'users':[users]})
+
+def studentsubject(request):
+    return render(request, "student/studentsubject.html")
 
 
 
