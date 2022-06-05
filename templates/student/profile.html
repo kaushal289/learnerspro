@@ -9,7 +9,8 @@
             {% for user in users %}
             <div class="col-md-3 border-right ">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    <img class="rounded-circle mt-5" width="200px" height="200px" src="{% static 'assets/' %}{{user.image}}" class="font-weight-bold"></div>
+                    <img class="rounded-circle mt-5" width="200px" height="200px" src="{% static 'assets/' %}{{user.image}}" class="font-weight-bold">
+                    Kaushal Khanal</span><span class="text-black-50">kaushal@gmail.com</span><span> </span></div>
                     <input type="file" name="image" class="form-control">
             </div>
             {% endfor %}

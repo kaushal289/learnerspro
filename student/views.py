@@ -1,8 +1,10 @@
+from asyncio.log import logger
 from django.shortcuts import render
 from pprint import pprint
-from django.http import request
+from django.http import JsonResponse, request
 from django.shortcuts import redirect, render
 import os
+from django.views import View
 from student.models import Student
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -11,7 +13,11 @@ from student.forms import StudentForm
 from teacher.models import Teacher
 # Create your views here.
 def studentdashboard(request):
-    return render(request,"student/landingpage.html")
+    try:
+        users=Student.objects.get(student_id=request.session['student_id'])
+        return render(request,"student/landingpage.html",{'users':[users]})
+    except:
+        return render(request,"student/landingpage.html")
 
 def register(request):
     if request.method == "POST":
@@ -30,15 +36,16 @@ def studentlogin(request):
         print("1")
         username=request.POST["username"]
         password=request.POST["password"]
+
         try:
-            user=Student.objects.get(username=username,password=password)
-            print(user)
-            if user is not None:
+            users=Student.objects.get(username=username,password=password)
+            print(users)
+            if users is not None:
                 request.session['username']=request.POST['username']
-                request.session['password']=request.POST['password'] 
-                print("1")
-                request.session['student_id']=user.student_id
-                return render(request,"student/landingpage.html")
+                request.session['password']=request.POST['password']
+                request.session['student_id']=users.student_id
+                users=Student.objects.get(student_id=request.session['student_id'])
+                return render(request,"student/landingpage.html",{'users':[users]})
                 
         except:
             try:  
@@ -66,11 +73,17 @@ def studentprofile(request,s_id):
         return render(request,"student/profile.html",{'users':[users]})
     except:
         print("No Data Found")
-    return redirect ("/useradmin/adminproduct")
+    return render(request,"student/profile.html",{'users':[users]})
 
 def profileupdate(request,s_id):
     student=Student.objects.get(student_id=s_id)
     if request.method=="POST":
+        try:
+            if len(request.FILES) != 0:
+                if len(student.image)>0:
+                    os.remove(student.image.path)
+                student.image=request.FILES['image']
+        except:
             student.image=request.FILES['image']
     form=StudentForm(request.POST, instance=student)
     form.save()

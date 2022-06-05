@@ -127,33 +127,11 @@
     margin-right: 0px !;
     
   }
-  .swal{
-    height: 100%;
-    padding-top:60px;
-    padding-bottom:60px;
-    border-color: rgba(0, 161, 235, 0.24);
-    background: rgb(34,193,195);
-    box-shadow: #333 0px 15px 40px -7px;
-    background: linear-gradient(0deg, rgba(34,193,195,0.2) 0%, rgba(195,255,189,0.2) 57%, rgba(45,249,253,0.2) 100%);
-  }
+  
   
   .options{
     border-radius: 50px;
     text-align: -webkit-center;
-  }
-  .swal p:nth-child(1){
-    font-size: 40px;
-    color: rgb(2, 0, 150);
-    text-shadow: 0px 3px 0px #b2a98f,
-                 0px 14px 10px rgba(0,0,0,0.15),
-                 0px 24px 2px rgba(0,0,0,0.1),
-                 0px 34px 30px rgba(0,0,0,0.1);
-    text-align: center;
-  }
-  .swal p:nth-child(2){
-    font-size: 27px;
-    color: rgb(0, 0, 0);
-    text-align: center;
   }
   .wrap {
     height: 100%;
@@ -256,7 +234,6 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    margin-top: auto;
     margin-bottom: auto;
     text-align: -webkit-center;
     
@@ -269,6 +246,7 @@
     min-width: 160px;
     transition: max-height 0.15s ease-out;
     overflow: hidden;
+    
     
   }
   
@@ -285,6 +263,7 @@
   .dropdown:hover .dropdown-content {
     max-height: 500px;
     min-width: 160px;
+    margin-top: 60px !important;
     transition: max-height 0.25s ease-in;
   }
   
@@ -354,4 +333,8 @@
 .aa{
   background-color: #00FFCB;
   height: 1000px;
+}
+.imgprof{
+  width:50px;
+  height:50px;
 }
