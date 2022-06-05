@@ -161,7 +161,6 @@ body{
   position: relative;
   padding: 10px;
   }
-<<<<<<< HEAD
 
 .wrap button::before {
 content: '';
@@ -186,31 +185,6 @@ content: '';
 
 
 .wrap button::after {
-=======
- 
-  .button {
-    min-width: 210px;
-    min-height: 60px;
-    margin:70px;
-    font-size: 23px;
-    text-transform: uppercase;
-    letter-spacing: 1.3px;
-    font-weight: 700;
-    color: white;
-    background: #4FD1C5;
-    background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
-    border: none;
-    border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(79,209,197,.64);
-    transition: all 0.3s ease-in-out 0s;
-    cursor: pointer;
-    outline: none;
-    position: relative;
-    padding: 10px;
-    }
-  
-  .wrap button::before {
->>>>>>> 68d7d8cbd1e8952a09b9ad9f9a364c858caa8011
   content: '';
   width: 30px; height: 30px;
   border-radius: 100%;
@@ -620,4 +594,8 @@ div.social {
     grid-template-columns: 1fr;
   }
 
+}
+.imgprof{
+  height:50px;
+  width: 50px;
 }
