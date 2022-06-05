@@ -2,7 +2,7 @@ from django.shortcuts import render
 from pprint import pprint
 from django.http import request
 from django.shortcuts import redirect, render
-import student
+import os
 from student.models import Student
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -16,9 +16,8 @@ def studentdashboard(request):
 def register(request):
     if request.method == "POST":
         print(request.POST)
-        form = StudentForm(request.POST)
+        form = StudentForm(request.POST,request.FILES)
         form.save()
-        user1=form.cleaned_data.get('username')
         return redirect("/studentlogin")
     else:
         form = StudentForm()
@@ -37,24 +36,20 @@ def studentlogin(request):
             if user is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
-                request.session['student_id']=Student.student_id
+                print("1")
+                request.session['student_id']=user.student_id
                 return render(request,"student/landingpage.html")
+                
         except:
-            print("2")
             try:  
-                print("3")
                 teacher=Teacher.objects.get(username=username,password=password)
-                print(teacher)
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password']
-                print(request.session['username'])
                 request.session['teacher_id']=teacher.teacher_id
-                print(request.session['password'])
                 return render(request,"teacher/landingpage.html")
             except:
-                print("error")
                 messages.error(request, 'Please enter correct username and password')
-                return render(request,"reglogin/login.html") 
+                return render(request,"auth/login.html")
     else:
         form=StudentForm()
         print("invalid")
@@ -65,8 +60,22 @@ def logout(request):
     request.session.clear()
     return redirect('/')
 
-def profile(request):
-    users=Student.objects.get(username=request.session['username'])
+def studentprofile(request,s_id):
+    try:
+        users=Student.objects.get(student_id=s_id)
+        return render(request,"student/profile.html",{'users':[users]})
+    except:
+        print("No Data Found")
+    return redirect ("/useradmin/adminproduct")
+
+def profileupdate(request,s_id):
+    student=Student.objects.get(student_id=s_id)
+    if request.method=="POST":
+            student.image=request.FILES['image']
+    form=StudentForm(request.POST, instance=student)
+    form.save()
+    request.session['username']=request.POST['username']
+    users=Student.objects.get(student_id=s_id)
     return render(request,"student/profile.html",{'users':[users]})
 
 

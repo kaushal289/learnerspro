@@ -1,3 +1,4 @@
+from pickle import TRUE
 from django.db import models
 
 # Create your models here.
@@ -9,8 +10,7 @@ class Student(models.Model):
     phone_number=models.CharField(max_length=10)
     email=models.CharField(max_length=100)
     password=models.CharField(max_length=100)
+    image=models.FileField(upload_to='image',blank=True)
     last_login=models.DateTimeField(null=True)
-    
-
     class Meta:
         db_table="student"

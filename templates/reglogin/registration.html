@@ -17,7 +17,7 @@
             <div class="heading">
                 <h1>Register here for free</h1>
             </div>
-            <form id="form" action="/studentregister " method="post">
+            <form id="form" action="/studentregister " method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="wrap" id="form">
                 <div class="first">
@@ -57,10 +57,11 @@
                 </div>
                 <div class="last">
                     <label>Confirm Password:</label>
-                    <input name="student_confirmpassword" id="confirmpassword" type="password" placeholder="Confirm your password">
+                    <input id="confirmpassword" type="password" placeholder="Confirm your password">
                     <span class="focus-input"></span>
                 </div>
             </div>
+            
             <div id ="nameerror"></div>
             <button class="btn" type="submit" value="submit">Create my account</button>
             <p>Already have an account? <a href="/studentlogin"><b>Login</b></a></p>
