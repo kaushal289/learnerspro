@@ -54,7 +54,8 @@ def studentlogin(request):
                 request.session['student_id']=user.student_id
                 print("1")
                 request.session['student_id']=user.student_id
-                return render(request,"student/landingpage.html")
+                users=Student.objects.get(student_id=request.session['student_id'])
+                return render(request,"student/landingpage.html",{'users':[users]})
             except:
                 messages.error(request, 'Please enter correct username and password')
                 return render(request,"reglogin/login.html")
@@ -93,7 +94,8 @@ def profileupdate(request,s_id):
     return render(request,"student/profile.html",{'users':[users]})
 
 def studentsubject(request):
-    return render(request, "student/studentsubject.html")
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "student/studentsubject.html",{'users':[users]})
 
 
 
