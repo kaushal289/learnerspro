@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/question.css' %}">
+    <script defer src="{% static 'js/question.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="heading">
+                <h1>Ask your question</h1>
+            </div>
+            <form id="form" action="/question" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="wrap" id="form">
+                    <div class="first">
+                        <label>Your Name:</label>
+                        <input name="name" id="name" type="text" value="">
+                        
+                    </div>
+                    <div class="last">
+                        <label>Subject:</label>
+                        <select name="subject">
+                            <option>English</option>
+                            <option>Science</option>
+                            <option>Social Studies</option>
+                            <option>Maths</option>
+                            <option>Computer</option>
+                            <option>Accounts</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="wrap1">
+                    <label>Question:</label>
+                    <textarea name="question" id="question" type="text" value=""></textarea>
+                </div>
+                <div id ="nameerror"></div>
+                <button class="btn" type="submit" value="submit">Submit your question.</button>
+                <p>Note: You will recieve your asnwer once the allocated teacher has suubmitted it.</p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

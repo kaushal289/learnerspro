@@ -14,3 +14,11 @@ class Student(models.Model):
     last_login=models.DateTimeField(null=True)
     class Meta:
         db_table="student"
+
+class Question(models.Model):
+    question_id=models.AutoField(auto_created=True, primary_key=True)
+    name=models.CharField(max_length=100)
+    subject=models.CharField(max_length=100)
+    question=models.CharField(max_length=1000)
+    class Meta:
+        db_table="question"

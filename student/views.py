@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import imp
-=======
-from asyncio.log import logger
->>>>>>> c163024aba3038eb84a3109dd5345932d92f0255
 from django.shortcuts import render
 from pprint import pprint
 from django.http import JsonResponse, request
@@ -13,7 +9,7 @@ from student.models import Student
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
-from student.forms import StudentForm
+from student.forms import StudentForm, Questionform
 from teacher.models import Teacher
 from django.contrib import messages, auth
 # Create your views here.
@@ -43,23 +39,12 @@ def studentlogin(request):
         password=request.POST["password"]
 
         try:
-<<<<<<< HEAD
             teacher=Teacher.objects.get(username=username,password=password)
             print(teacher)
             if teacher is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
                 return render(request,"teacher/landingpage.html")
-=======
-            users=Student.objects.get(username=username,password=password)
-            print(users)
-            if users is not None:
-                request.session['username']=request.POST['username']
-                request.session['password']=request.POST['password']
-                request.session['student_id']=users.student_id
-                users=Student.objects.get(student_id=request.session['student_id'])
-                return render(request,"student/landingpage.html",{'users':[users]})
->>>>>>> c163024aba3038eb84a3109dd5345932d92f0255
                 
         except:
             try:  
@@ -110,6 +95,23 @@ def profileupdate(request,s_id):
 def studentsubject(request):
     return render(request, "student/studentsubject.html")
 
+def questionanswer(request):
+    return render(request, "student/qa.html")
 
+def question(request):
+    if request.method == "POST":
+        print(request.POST)
+        form = Questionform(request.POST,request.FILES)
+        if (form.is_valid()):
+
+
+            
+            form.save()
+            print('Fromn Saved')
+            return redirect("/question")
+    else:
+        form = Questionform()
+    return render(request, "student/question.html", {'form': form})
+    
 
 
