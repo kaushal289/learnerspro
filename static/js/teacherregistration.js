@@ -7,7 +7,8 @@ const phnumber = document.getElementById('number')
 const username = document.getElementById('username')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
-const confirmpassword = document.getElementById('confirmpassowrd')
+const confirmpassword = document.getElementById('confirmpassword')
+
 
 
 form.addEventListener('submit' ,(e)  => {
@@ -46,10 +47,10 @@ form.addEventListener('submit' ,(e)  => {
     }
     else if(confirmpassword.value.trim()==""){
         messages.push("Please confirm your password.")
-        confirmpassword.style.border+"solid 4px red"
+        confirmpassword.style.border="solid 4px red"
     }
-    else if(password!=confirmpassword){
-        messages.push("Passwords don't match.")
+    else if(password.value!=confirmpassword.value){
+        messages.push("Passwords dont match")
         confirmpassword.style.border="solid 4px red"
     }
     if(messages.length >0){
