@@ -103,9 +103,6 @@ def question(request):
         print(request.POST)
         form = Questionform(request.POST,request.FILES)
         if (form.is_valid()):
-
-
-            
             form.save()
             print('Fromn Saved')
             return redirect("/question")
