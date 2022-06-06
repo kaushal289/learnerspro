@@ -1,0 +1,16 @@
+.button {
+    border: none;
+    font-family: "georgia",sans-serif;
+    font-style:italic;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 1px;
+    padding: 10px;
+    width: 80px;
+    border-radius: 6px;
+    color: Black;
+    background-size: 200%;
+    background-image: linear-gradient(to left, #BDC581, #58B19F, #BDC581);
+    transition: 0.1s;
+    overflow: hidden;
+}

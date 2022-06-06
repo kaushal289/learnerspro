@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from teacher.models import Teacher
+from teacher.models import Teacher, Teachersubject
 from teacher.forms import TeacherForm
 
 # Create your views here.
@@ -24,21 +24,11 @@ def logout(request):
     request.session.clear()
     return redirect('/')
 
+
+
 def addsubject(request):
-    form = teachersubject()
-    if request.method == 'POST':
+    if request.method == "POST":
         form = teachersubject(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('showsubjects')
-    else:
-        form = teachersubject()
-
-   
-    context = {
-        "form":form
-    }
-
-    return render(request, 'addsubject.html', context)
-
-
+        form.save()
+        return redirect("/teachersubject")
+    return render(request, "teacher/addsubject.html")
