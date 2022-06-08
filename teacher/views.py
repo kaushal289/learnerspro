@@ -42,3 +42,5 @@ def addsubject(request):
     return render(request, 'addsubject.html', context)
 
 
+def email(request):
+    return render (request, "teacher/email.html")
