@@ -44,3 +44,7 @@ def addsubject(request):
 
 def email(request):
     return render (request, "teacher/email.html")
+
+
+def reset(request):
+    return render (request, "teacher/resetpassword.html")

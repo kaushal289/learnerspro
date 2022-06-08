@@ -1,11 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="{% static 'css/email.css'%}">
+    <script src="{% static 'js/email.js'%}"></script>
     
     <title>Forgot Password</title>
 </head>
@@ -17,6 +20,7 @@
                 <p>Enter the email address you've used to register with and we'll send you a reset link.</p>
             </div>
             <form id="form" action=" " method="post">
+            {% csrf_token %}
             <div class="inp">
                 <label>Email:</label>
                 <input name="email" id="email" type="email" placeholder="Enter your email address.">
@@ -26,6 +30,4 @@
     </div>
 </form>
 </body>
-
-<script src="{% static 'js/email.js'%}"></script>
 </html>
