@@ -32,3 +32,9 @@ def addsubject(request):
     return render(request, "teacher/addsubject.html")
 
 
+def email(request):
+    return render (request, "teacher/email.html")
+
+
+def reset(request):
+    return render (request, "teacher/resetpassword.html")
