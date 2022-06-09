@@ -33,11 +33,8 @@ def register(request):
 def studentlogin(request):
     print("12345")
     if request.method=='POST':
-        print(request)
-        print("1")
         username=request.POST["username"]
         password=request.POST["password"]
-
         try:
             teacher=Teacher.objects.get(username=username,password=password)
             print(teacher)
@@ -45,16 +42,15 @@ def studentlogin(request):
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
                 return render(request,"teacher/landingpage.html")
-                
         except:
-            try:  
+            try:
                 user=Student.objects.get(username=username,password=password)
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password']
                 request.session['student_id']=user.student_id
-                print("1")
                 request.session['student_id']=user.student_id
-                return render(request,"student/landingpage.html")
+                users=Student.objects.get(student_id=request.session['student_id'])
+                return render(request,"student/landingpage.html",{'users':[users]})
             except:
                 messages.error(request, 'Please enter correct username and password')
                 return render(request,"reglogin/login.html")
@@ -93,7 +89,8 @@ def profileupdate(request,s_id):
     return render(request,"student/profile.html",{'users':[users]})
 
 def studentsubject(request):
-    return render(request, "student/studentsubject.html")
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "student/studentsubject.html",{'users':[users]})
 
 def questionanswer(request):
     return render(request, "student/qa.html")
@@ -102,10 +99,7 @@ def question(request):
     if request.method == "POST":
         print(request.POST)
         form = Questionform(request.POST,request.FILES)
-        if (form.is_valid()):
-
-
-            
+        if (form.is_valid()):            
             form.save()
             print('Fromn Saved')
             return redirect("/question")

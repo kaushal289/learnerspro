@@ -1,27 +1,40 @@
-{% extends 'teachersubject.html' %}
-
-
+{% extends 'teacherdashboard.html' %}
 {% block content %}
-  
-<hr>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add_New subj</title>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'css/addsubject.css' %}">
+</head>
+<body>
+    <div class="small_div">
 
-  <h1 style="font-size: 40px; margin-left: 30px;" class="p-2">
-     Add Subject
-  </h1>
+        <div class="container">
+            <br>
+            <h2>ADD NEW ENTRY</h2>
+            <hr>
 
+            <form action="/create">
+                {%  csrf_token %}
+                <label class="form-group" for="title">Title : </label>
+                <input class="form-control" type="text" name="title"><br>
+                <label class="form-group" for="subject">Subject : </label>
+                <input class="form-control" type="text" name="subject"><br>
+                <label class="form-group" for="incharge">content : </label>
+                <input class="form-control" type="text" name="incharge"><br>
+                <label class="form-group" for="submission_date">Submission_date : </label>
+                <input class="form-control" type="date" name="submission_date"><br>
 
-
-  <div class="container m-3">
-      <form action="" method="post" enctype="multipart/form-data">
-
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" name="Submit">
-
-      </form>
-  </div>
-
-
-
+                <input type="submit" class="btn btn-success" value="Create">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
 
 {% endblock %}

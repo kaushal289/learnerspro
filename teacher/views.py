@@ -25,20 +25,10 @@ def logout(request):
     return redirect('/')
 
 def addsubject(request):
-    form = teachersubject()
-    if request.method == 'POST':
+    if request.method == "POST":
         form = teachersubject(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('showsubjects')
-    else:
-        form = teachersubject()
-
-   
-    context = {
-        "form":form
-    }
-
-    return render(request, 'addsubject.html', context)
+        form.save()
+        return redirect("/teachersubject")
+    return render(request, "teacher/addsubject.html")
 
 

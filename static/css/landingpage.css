@@ -249,3 +249,6 @@ img
 .templatemo-box{
     border: 5px solid rgba(1, 22, 255, 0.379);
 }
+.images{
+    height: 300px;
+}
