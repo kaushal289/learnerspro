@@ -248,4 +248,7 @@ img
 }
 .templatemo-box{
     border: 5px solid rgba(1, 22, 255, 0.379);
+    margin-left: 0px;
+    margin-right: 0px;
+
 }
