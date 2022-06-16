@@ -1,4 +1,5 @@
 from ast import Pass
+from cmath import log
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from pprint import pprint
@@ -21,13 +22,19 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_str, force_bytes, DjangoUnicodeDecodeError
 from django.core.mail import EmailMessage
+from django.contrib.auth import logout as do_logout
 # Create your views here.
 def studentdashboard(request):
     
     # print (request.session.username)
-    print(request.user)
+    # print(request.session.username)
+    # print(reque
+    # st.user.username)
+    print('hello')
     try:
         users=Student.objects.get(student_id=request.session['student_id'])
+        
+
         return render(request,"student/landingpage.html",{'users':[users]})
     except:
         return render(request,"student/landingpage.html")
@@ -60,6 +67,7 @@ def studentlogin(request):
             print("B")
             print(teacher)
             if teacher is not None:
+                request.session.set_expiry(0)
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
                 request.session['teacher_id']=teacher.teacher_id
@@ -68,15 +76,20 @@ def studentlogin(request):
         except:
             try:
                 user=Student.objects.get(username=username,password=password)
+                request.session.set_expiry(0)
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password']
                 request.session['student_id']=user.student_id
+                request.session['exists'] = True
                 users=Student.objects.get(student_id=request.session['student_id'])
+                
                 return render(request,"student/landingpage.html",{'users':[users]})
+                
             except:
                 try:
                     admin=Admin.objects.get(username=username,password=password)
                     if admin is not None:
+                        request.session.set_expiry(0)
                         request.session['username']=request.POST['username']
                         request.session['password']=request.POST['password'] 
                         request.session['admin_id']=admin.admin_id
@@ -89,11 +102,13 @@ def studentlogin(request):
     else:
         form=StudentForm()
         print("invalid")
+        request.session['exists'] = False
     return render(request,"reglogin/login.html",{'form':form}) 
 
 
 def logout(request):
-    request.session.clear()
+    do_logout(request)
+    # request.session.clear()
     return redirect('/')
 
 def studentprofile(request,s_id):

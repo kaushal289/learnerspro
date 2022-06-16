@@ -143,3 +143,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'bimasida.bd@gmail.com'
 EMAIL_HOST_PASSWORD = "nnkxuofllgsbwqqv"
 EMAIL_FROM_USER = 'bimasida.bd@gmail.com'
+
