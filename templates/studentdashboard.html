@@ -13,8 +13,8 @@
     </head>
     <body>
         
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-                <div class="container-fluid" id="body">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light" >
+                <div class="container-fluid" style="display:inline-table" id="body">
                     <div class="company d-flex justify-content-center">
                         <img src="{% static 'img/logo.png' %}">
                             <h1><b>Learners Pro</b>
@@ -38,6 +38,9 @@
                             </div>
                             <a class="btn" href="/#about" id="ab">About</a> 
                             <a class="btn" href="/#contact">Contact</a> 
+                            <form class="d-flex" role="">
+                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
                         </div>
                         {% if request.session.username %}
                         <span class="login col-lg-5 d-flex justify-content-end" >

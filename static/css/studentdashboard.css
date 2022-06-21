@@ -1,4 +1,4 @@
-*{
+f*{
   margin: 0px;
   padding: 0px;
 }
@@ -118,6 +118,7 @@ body{
   text-align: -webkit-right !important;
   margin-top: auto;
   margin-bottom: auto;
+  
 }
 
 .row{
