@@ -26,8 +26,7 @@ form.addEventListener('submit' ,(e)  => {
         errorElement.innerHTML = messages.join(' , ' )
     }
     else{
-        alert('Password changed successfully.')
+        alert("Password changed successfully")
     }
-    
 })
 

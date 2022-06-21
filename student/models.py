@@ -22,3 +22,10 @@ class Question(models.Model):
     question=models.CharField(max_length=1000)
     class Meta:
         db_table="question"
+
+class Ticket(models.Model):
+    ticket_id=models.AutoField(auto_created=True, primary_key=True)
+    topic=models.CharField(max_length=100)
+    summary=models.CharField(max_length=1000)
+    class Meta:
+        db_table="ticket"

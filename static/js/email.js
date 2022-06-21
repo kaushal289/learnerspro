@@ -2,9 +2,6 @@ const form = document.getElementById('form')
 const errorElement = document.getElementById('emailerror')
 const email = document.getElementById('email')
 
-
-
-
 form.addEventListener('submit' ,(e)  => {
     let messages =[]
     if(email.value.trim()==""){

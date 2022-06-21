@@ -12,4 +12,5 @@ urlpatterns = [
     path('studentsubject', views.studentsubject, name='studentsubject'),
     path('questionanswer', views.questionanswer, name='questionanswer'),
     path('question', views.question, name='question'),
+    path('ticket',views.ticket, name='ticket'),
 ]

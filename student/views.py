@@ -9,7 +9,7 @@ from student.models import Student
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
-from student.forms import StudentForm, Questionform
+from student.forms import StudentForm, Questionform, TicketForm
 from teacher.models import Teacher
 from django.contrib import messages, auth
 # Create your views here.
@@ -103,16 +103,25 @@ def question(request):
     if request.method == "POST":
         print(request.POST)
         form = Questionform(request.POST,request.FILES)
-        if (form.is_valid()):
-
-
-            
+        if (form.is_valid()):            
             form.save()
             print('Fromn Saved')
             return redirect("/question")
     else:
         form = Questionform()
     return render(request, "student/question.html", {'form': form})
+
+def ticket(request):
+    if request.method == "POST":
+        print(request.POST)
+        form = TicketForm(request.POST,request.FILES)
+        if (form.is_valid()):
+            form.save()
+            print('Fromn Saved')
+            return redirect("/ticket")
+    else:
+        form = TicketForm()
+    return render(request, "student/ticket.html", {'form': form})
     
 
 
