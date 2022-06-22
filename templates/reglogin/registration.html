@@ -22,18 +22,24 @@
             <div class="wrap" id="form">
                 <div class="first">
                     <label>First Name:</label>
-                    <input name="student_firstname" id="name" type="text" placeholder="Enter your First Name">
+                    <input name="student_firstname" pattern="(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})" 
+                    id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
+                    oninput="this.setCustomValidity('')"  required>
                     <span class="focus-input"></span>
                 </div>
                 <div class="last">
                     <label>Last Name:</label>
-                    <input name="student_lastname" id="lname" type="text" placeholder="Enter your Last Name">
+                    <input name="student_lastname" id="lname" type="text" pattern="(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})" 
+                    id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
+                    oninput="this.setCustomValidity('')" placeholder="Enter your Last Name">
                     <span class="focus-input"></span>
                 </div>
             </div>
             <div class="wrap1">
                 <label>Username:</label>
-                <input name="username" id="username" type="text" placeholder="Enter a username">
+                <input name="username" id="username" type="text" pattern="(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})" 
+                id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
+                oninput="this.setCustomValidity('')" placeholder="Enter a username">
                 <span class="focus-input"></span>
                 <div id ="emailerror"></div>
             </div>

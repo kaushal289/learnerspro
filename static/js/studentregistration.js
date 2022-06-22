@@ -32,7 +32,7 @@ form.addEventListener('submit' ,(e)  => {
         messages.push("Please enter your number.")
         number.style.border="solid 4px red"
     }
-    else if(number.value.length<10|| number.value.length>10){
+    else if(number.value.length<10 || number.value.length>10){
         messages.push("The number should be 10 digits.")
         number.style.border="solid 4px red"
     }
