@@ -23,9 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('student.urls')),
     path('',include('teacher.urls')),
-<<<<<<< HEAD
-    path('',include('addcourse.urls'))
-=======
+    path('',include('addcourse.urls')),
     path('reset_password/',
     auth_views.PasswordResetView.as_view(template_name="teacher/email.html"),
     name ="reset_password"),
@@ -38,5 +36,4 @@ urlpatterns = [
     path('reset_password_complete/', 
     auth_views.PasswordResetView.as_view(template_name="teacher/resetpassworddone.html") , 
     name ="password_reset_complete")
->>>>>>> 25e845b2753558764247791987615d397bec9c40
     ]

@@ -35,7 +35,6 @@ def addsubject(request):
         return redirect("/teachersubject")
     return render(request, "teacher/addsubject.html")
 
-<<<<<<< HEAD
 
 def email(request):
     return render (request, "teacher/email.html")
@@ -87,7 +86,3 @@ def deletecourse(request,c_id):
     course=Course.objects.get(course_id=c_id)
     course.delete()
     return redirect ("/allcourse")
-=======
-def resetpassworddone(request):
-    return redirect(request, "/reset_password_complete")
->>>>>>> 25e845b2753558764247791987615d397bec9c40
