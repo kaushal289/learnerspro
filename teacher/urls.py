@@ -9,4 +9,8 @@ urlpatterns = [
     path('logout',views.logout,name='logout'),
     path('email',views.email, name = "email"),
     path('reset',views.reset, name = "reset"),
+    path('allcourse',views.allcourse, name = "allcourse"),
+    path('editcourse/<int:c_id>',views.editcourse, name = "editcourse"),
+    path('courseupdate/<int:c_id>',views.courseupdate, name = "courseupdate"),
+    path('deletecourse/<int:c_id>',views.deletecourse, name = "deletecourse"),
 ]

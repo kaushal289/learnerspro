@@ -19,17 +19,29 @@
             <h2>ADD NEW ENTRY</h2>
             <hr>
 
-            <form action="/create">
+            <form action="/addcourse" method="POST" enctype="multipart/form-data">
                 {%  csrf_token %}
-                <label class="form-group" for="title">Title : </label>
-                <input class="form-control" type="text" name="title"><br>
+                <label class="form-group" for="title">Class : </label>
+                <select name="std_class" style="height:40px;">
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
                 <label class="form-group" for="subject">Subject : </label>
-                <input class="form-control" type="text" name="subject"><br>
-                <label class="form-group" for="incharge">content : </label>
-                <input class="form-control" type="text" name="incharge"><br>
-                <label class="form-group" for="submission_date">Submission_date : </label>
-                <input class="form-control" type="date" name="submission_date"><br>
-
+                <select name="subject" style="height:40px;">
+                    <option value="Science">Science</option>
+                    <option value="Social studies">Social studies</option>
+                    <option value="Maths">Maths</option>
+                    <option value="English">English</option>
+                    <option value="Accounts">Accounts</option>
+                    <option value="Computer">Computer</option>
+                </select><br>
+                <label class="form-group" for="incharge">Topic: </label>
+                <input class="form-control" type="text" name="topic"><br>
+                <label class="form-group">Content : </label>
+                <input type="file" name="content" class="form-control" />
                 <input type="submit" class="btn btn-success" value="Create">
             </form>
         </div>

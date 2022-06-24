@@ -1,17 +1,13 @@
-import imp
 from django.shortcuts import render
 from pprint import pprint
-from django.http import JsonResponse, request
 from django.shortcuts import redirect, render
 import os
-from django.views import View
+from addcourse.models import Course
 from student.models import Student
-from django.contrib.auth.models import User
-from django.contrib import auth
 from django.contrib import messages
 from student.forms import StudentForm, Questionform
 from teacher.models import Teacher
-from django.contrib import messages, auth
+from django.contrib import messages
 # Create your views here.
 def studentdashboard(request):
     
@@ -89,9 +85,31 @@ def profileupdate(request,s_id):
     users=Student.objects.get(student_id=s_id)
     return render(request,"student/profile.html",{'users':[users]})
 
-def studentsubject(request):
+def class6(request):
     users=Student.objects.get(student_id=request.session['student_id'])
-    return render(request, "student/studentsubject.html",{'users':[users]})
+    return render(request, "class6/class6.html",{'users':[users]})
+
+def class7(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "class7/class7.html",{'users':[users]})
+
+def class6science(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    sciences=Course.objects.raw("select * from course where std_class='6' and subject='Science'")
+    return render(request, "class6/class6science.html",{'users':[users],'sciences':sciences})
+
+
+def class6english(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    englishs=Course.objects.raw("select * from course where std_class='6' and subject='English'")
+    return render(request, "class6/class6english.html",{'users':[users],'englishs':englishs})
+
+def class7math(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    maths=Course.objects.raw("select * from course where std_class='7' and subject='Maths'")
+    return render(request, "class7/class7math.html",{'users':[users],'maths':maths})
+
+
 
 def questionanswer(request):
     return render(request, "student/qa.html")

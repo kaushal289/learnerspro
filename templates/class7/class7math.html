@@ -1,0 +1,16 @@
+{% extends "studentdashboard.html" %}
+{% block content %}
+{% load static %}
+<div class="col-lg-11 container-fluid" id="math">
+    <h1>Math</h1>
+        <div class="row justify-content-center"> 
+            {% for math in maths %}
+            <div class="col-md-3 prouctitem">
+                <h6 class="desc"><b>{{math.topic}}</b></h6>
+                <button onclick="window.open(src='{% static 'assets/' %}{{math.content}}');">Open</button>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+
+{% endblock %}
