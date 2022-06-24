@@ -24,6 +24,7 @@ urlpatterns = [
     path('',include('student.urls')),
     path('',include('teacher.urls')),
     path('',include('addcourse.urls')),
+    path('',include('alladmin.urls')),
     path('reset_password/',
     auth_views.PasswordResetView.as_view(template_name="teacher/email.html"),
     name ="reset_password"),

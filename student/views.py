@@ -10,7 +10,6 @@ from teacher.models import Teacher
 from django.contrib import messages
 # Create your views here.
 def studentdashboard(request):
-    
     try:
         users=Student.objects.get(student_id=request.session['student_id'])
         return render(request,"student/landingpage.html",{'users':[users]})
