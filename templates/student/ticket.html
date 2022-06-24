@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/ticket.css' %}">
+    <script defer src="{% static 'js/ticket.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="heading">
+                <h1>Raise you ticket</h1>
+            </div>
+            <form id="form" action="" method="post">
+                {% csrf_token %}
+                <div class="wrap" id="form">
+                    <div class="last">
+                        <label>Topic:</label>
+                        <select name="topic">
+                            <option>Complain</option>
+                            <option>Enquiry</option>
+                            <option>Upgrades on the page</option>
+                            <option>Bugs</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="wrap1">
+                    <label>Summary:</label>
+                    <textarea name="summary" id="summary" type="text" value="" placeholder="Additional Information"></textarea>
+                </div>
+                <div id ="nameerror"></div>
+                <button class="btn" type="submit" value="submit">Open Ticket</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

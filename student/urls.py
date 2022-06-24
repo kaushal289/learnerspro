@@ -16,4 +16,5 @@ urlpatterns = [
     path('class7math', views.class7math, name='class7math'),
     path('questionanswer', views.questionanswer, name='questionanswer'),
     path('question', views.question, name='question'),
+    path('ticket',views.ticket, name='ticket'),
 ]

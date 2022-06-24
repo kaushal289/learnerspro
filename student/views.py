@@ -5,7 +5,7 @@ import os
 from addcourse.models import Course
 from student.models import Student
 from django.contrib import messages
-from student.forms import StudentForm, Questionform
+from student.forms import StudentForm, Questionform, TicketForm
 from teacher.models import Teacher
 from django.contrib import messages
 # Create your views here.
@@ -125,6 +125,18 @@ def question(request):
     else:
         form = Questionform()
     return render(request, "student/question.html", {'form': form})
+
+def ticket(request):
+    if request.method == "POST":
+        print(request.POST)
+        form = TicketForm(request.POST,request.FILES)
+        if (form.is_valid()):
+            form.save()
+            print('Fromn Saved')
+            return redirect("/ticket")
+    else:
+        form = TicketForm()
+    return render(request, "student/ticket.html", {'form': form})
     
 
 
