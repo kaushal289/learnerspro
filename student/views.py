@@ -1,9 +1,11 @@
+from ast import Pass
 from django.shortcuts import render
 from pprint import pprint
 from django.shortcuts import redirect, render
 import os
 from addcourse.models import Course
 from student.models import Student
+from alladmin.models import Admin
 from django.contrib import messages
 from student.forms import StudentForm, Questionform, TicketForm
 from teacher.models import Teacher
@@ -32,12 +34,18 @@ def studentlogin(request):
         username=request.POST["username"]
         password=request.POST["password"]
         try:
+            print("A")
+            admin=Admin.objects.get(username=username,password=password)
             teacher=Teacher.objects.get(username=username,password=password)
+           
+            print("B")
             print(teacher)
+            print(admin)
             if teacher is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
                 return render(request,"teacher/landingpage.html")
+            
         except:
             try:
                 user=Student.objects.get(username=username,password=password)
@@ -48,8 +56,16 @@ def studentlogin(request):
                 users=Student.objects.get(student_id=request.session['student_id'])
                 return render(request,"student/landingpage.html",{'users':[users]})
             except:
+                try:
+                    if admin is not None:
+                        request.session['username']=request.POST['username']
+                        request.session['password']=request.POST['password'] 
+                        return render(request,"admindashboard.html")
+                except:
+                    Pass 
                 messages.error(request, 'Please enter correct username and password')
                 return render(request,"reglogin/login.html")
+            
     else:
         form=StudentForm()
         print("invalid")
