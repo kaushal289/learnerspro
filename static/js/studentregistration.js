@@ -56,9 +56,7 @@ form.addEventListener('submit' ,(e)  => {
         e.preventDefault()
         errorElement.innerHTML = messages.join(' , ' )
     }
-    else{
-        alert("Registered Successfully")
-    }
+
 })
 $(window).on('load',function(){
     $(".container").fadeIn(1000);
