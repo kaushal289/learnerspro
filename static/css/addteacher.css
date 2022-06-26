@@ -1,0 +1,181 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #ff725e;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.heading{
+    width: 80%;
+    text-align: center;
+}
+h1{
+    font-weight: 455;
+    font-size: 45px;
+    color: #ff725e;
+}
+p{
+    font-size: 16px;
+    font-weight: 200;
+}
+input{
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    height: 6vh;
+}
+.container{
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 90vh;
+    background-color: white;
+    display:flex;
+    box-shadow: 5px;
+    border-radius: 5px;
+}
+.form{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+form{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.image{
+    width: 55%;
+}
+.img{
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.wrap1{
+    width: 80%;
+    margin-bottom: 10px;
+    position:relative;
+}
+.wrap{
+    display:flex;
+    width: 80%;
+    justify-content: center;
+}
+.first{
+    width: 45%;
+    position: relative;
+}
+.last{
+    width: 50%;
+    margin-left: auto;
+    position: relative;
+}
+
+.btn{
+    font-size: 20px;
+    margin-top: 20px;
+    width: 350px;
+    height: 50px;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #ff725e;
+    border: 2px solid #ff725e;
+    transition-duration: 0.5s;
+}
+.btn:hover{
+    background-color:salmon;
+    color: white;
+
+}
+label{
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    display: flex;
+    width: 80%;
+    min-height: 25px;
+    align-items: center;
+}
+input{
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    transition:all 0.3s ease;
+    border: 2px solid gray;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: mediumseagreen;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+/**.focus-input{
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+**/
+@media(max-width:1250px){
+    .container{
+        width: 90%;
+    }
+}
+
+@media(max-width:768px) {
+    .container{
+        width: 100%;
+        height: 110vh !important;
+        position: static;
+        transform: translate(0,0);
+    }
+    
+}
+@media(max-width:1000px){
+    .image{
+        display: none;
+    }
+    .container{
+        height: 95vh;
+    }
+    .form{
+        align-items: center;
+        width: 100%;
+    }
+}
+@media(max-width:500px){
+    .wrap{
+        flex-direction: column;
+    }
+    .first,.last{
+        width: 100%;
+        margin: 0px;
+    }
+    .form{
+        align-items: center;
+    }
+}
+#nameerror{
+    color: red;
+    margin-top: 2vh;
+}

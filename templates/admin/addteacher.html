@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/addteacher.css'%}">
+    <script defer src="{% static 'js/addteacher.css'%}"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Add teacher</title>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="form">
+            <div class="heading">
+                <h1>Add Teacher</h1>
+            </div>
+            <form id="form" action="/customer/customer_reg" method="post">
+            {% csrf_token %}
+            <div class="wrap" id="form">
+                <div class="first">
+                    <label>First Name:</label>
+                    <input name="teacher_firstname" id="name" type="text" placeholder="Enter your First Name">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="last">
+                    <label>Last Name:</label>
+                    <input name="teacher_lastname" id="lname" type="text" placeholder="Enter your Last Name">
+                    <span class="focus-input"></span>
+                </div>
+            </div>
+            <div class="wrap1">
+                <label>Username:</label>
+                <input name="username" id="username" type="text" placeholder="Enter a username">
+                <span class="focus-input"></span>
+                <div id ="emailerror"></div>
+            </div>
+            <div class="wrap1">
+                <label>Email:</label>
+                <input name="email" id="email" type="email" placeholder="Enter your Email Address">
+                <span class="focus-input"></span>
+                <div id ="emailerror"></div>
+            </div>
+            <div class="wrap1">
+                <label>Phone Number:</label>
+                <input name="phone_number" id="number" type="number" placeholder="Enter your phonenumber">
+                <span class="focus-input"></span>
+                <div id ="numbererror"></div>
+            </div>
+            <div class="wrap" id="form">
+                <div class="first">
+                    <label>Password:</label>
+                    <input name="password" id="password" type="password" placeholder="Enter a password">
+                    <span class="focus-input"></span>
+                </div>
+                <div class="last">
+                    <label>Confirm Password:</label>
+                    <input name="teacher_confirmpassword" id="confirmpassword" type="password" placeholder="Confirm your password">
+                    <span class="focus-input"></span>
+                </div>
+            </div>
+            <div id ="nameerror"></div>
+            <button class="btn" type="submit" value="submit">Create an account</button>
+        </div>
+        <div class="image">
+            <img src="{% static 'img/addteacher.png' %}" class="img" alt=""/>
+        </div>
+    </div>
+</form>
+</body>
+</html>
