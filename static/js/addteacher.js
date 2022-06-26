@@ -6,8 +6,9 @@ var intonumber = parseInt(document.getElementById('name'))
 const phnumber = document.getElementById('number')
 const username = document.getElementById('username')
 const email = document.getElementById('email')
-const password = document.querySelector("#password")
-const confirmpassword = document.querySelector("#confirmpassword")
+const password = document.getElementById('password')
+const confirmpassword = document.getElementById('confirmpassword')
+
 
 
 form.addEventListener('submit' ,(e)  => {
@@ -32,7 +33,7 @@ form.addEventListener('submit' ,(e)  => {
         messages.push("Please enter your number.")
         number.style.border="solid 4px red"
     }
-    else if(number.value.length<10 || number.value.length>10){
+    else if(number.value.length<10|| number.value.length>10){
         messages.push("The number should be 10 digits.")
         number.style.border="solid 4px red"
     }
@@ -46,17 +47,19 @@ form.addEventListener('submit' ,(e)  => {
     }
     else if(confirmpassword.value.trim()==""){
         messages.push("Please confirm your password.")
-        confirmpassword.style.border+"solid 4px red"
+        confirmpassword.style.border="solid 4px red"
     }
     else if(password.value!=confirmpassword.value){
-        messages.push("Passwords don't match.")
+        messages.push("Passwords dont match")
         confirmpassword.style.border="solid 4px red"
     }
     if(messages.length >0){
         e.preventDefault()
         errorElement.innerHTML = messages.join(' , ' )
     }
-
+    else{
+        alert("Teacher account created successfully")
+    }
 })
 $(window).on('load',function(){
     $(".container").fadeIn(1000);

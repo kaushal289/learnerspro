@@ -1,4 +1,5 @@
 from ast import Pass
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from pprint import pprint
 from django.shortcuts import redirect, render
@@ -20,10 +21,15 @@ def studentdashboard(request):
 
 def register(request):
     if request.method == "POST":
-        print(request.POST)
         form = StudentForm(request.POST,request.FILES)
-        form.save()
-        return redirect("/studentlogin")
+        username=request.POST["username"]
+        try:
+            Student.objects.get(username=username)
+            messages.error(request, 'Username already used')
+            return redirect(request.META['HTTP_REFERER'])
+        except:
+            form.save()
+            return redirect("/studentlogin") 
     else:
         form = StudentForm()
     return render(request, "reglogin/registration.html", {'form': form})
@@ -35,12 +41,11 @@ def studentlogin(request):
         password=request.POST["password"]
         try:
             print("A")
-            admin=Admin.objects.get(username=username,password=password)
+           
             teacher=Teacher.objects.get(username=username,password=password)
            
             print("B")
             print(teacher)
-            print(admin)
             if teacher is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
@@ -57,6 +62,7 @@ def studentlogin(request):
                 return render(request,"student/landingpage.html",{'users':[users]})
             except:
                 try:
+                    admin=Admin.objects.get(username=username,password=password)
                     if admin is not None:
                         request.session['username']=request.POST['username']
                         request.session['password']=request.POST['password'] 

@@ -5,46 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/studentregistration.css'%}">
-    <script defer src="{% static 'js/studentregistration.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/addteacher.css'%}">
+    <script defer src="{% static 'js/addteacher.css'%}"></script>
     <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Registration</title>
+    <title>Add teacher</title>
 </head>
 <body>
     <div class="container">
         
         <div class="form">
             <div class="heading">
-                <h1>Register here for free</h1>
-                <div class="messages" style="color: red;">
-                    {% for message in messages %}
-                    {{message}}
-                    {% endfor %}
-                </div>
+                <h1>Add Teacher</h1>
             </div>
-            <form id="form" action="/studentregister " method="POST" enctype="multipart/form-data">
+            <form id="form" action="/customer/customer_reg" method="post">
             {% csrf_token %}
             <div class="wrap" id="form">
                 <div class="first">
                     <label>First Name:</label>
-                    <input name="student_firstname" pattern="[a-zA-Z]+" 
-                    id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
-                    oninput="this.setCustomValidity('')"  required>
+                    <input name="teacher_firstname" id="name" type="text" placeholder="Enter your First Name">
                     <span class="focus-input"></span>
                 </div>
                 <div class="last">
                     <label>Last Name:</label>
-                    <input name="student_lastname" id="lname" type="text" pattern="[a-zA-Z]+" 
-                    id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
-                    oninput="this.setCustomValidity('')" placeholder="Enter your Last Name">
+                    <input name="teacher_lastname" id="lname" type="text" placeholder="Enter your Last Name">
                     <span class="focus-input"></span>
                 </div>
             </div>
             <div class="wrap1">
                 <label>Username:</label>
-                <input name="username" id="username" type="text" pattern="[a-zA-Z]+" 
-                id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
-                oninput="this.setCustomValidity('')" placeholder="Enter a username">
+                <input name="username" id="username" type="text" placeholder="Enter a username">
                 <span class="focus-input"></span>
                 <div id ="emailerror"></div>
             </div>
@@ -68,18 +57,15 @@
                 </div>
                 <div class="last">
                     <label>Confirm Password:</label>
-                    <input id="confirmpassword" type="password" placeholder="Confirm your password">
+                    <input name="teacher_confirmpassword" id="confirmpassword" type="password" placeholder="Confirm your password">
                     <span class="focus-input"></span>
                 </div>
             </div>
-            
             <div id ="nameerror"></div>
-            <button class="btn" type="submit" value="submit">Create my account</button>
-            <p>Already have an account? <a href="/studentlogin"><b>Login</b></a></p>
-            <p>For Teachers  who want to use the platform, <b><a href="/teacherregister">Register Here!!</a></b></p>
+            <button class="btn" type="submit" value="submit">Create an account</button>
         </div>
         <div class="image">
-            <img src="{% static 'img/im.png' %}" class="img" alt=""/>
+            <img src="{% static 'img/addteacher.png' %}" class="img" alt=""/>
         </div>
     </div>
 </form>
