@@ -30,6 +30,9 @@ textarea {
     resize:vertical;
     border: 2px solid black;
     border-radius: 5px;
+    outline: none;
+    resize: none;
+    font-size: 16px;
 }
 select{
     width: 100%;
