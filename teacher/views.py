@@ -1,3 +1,4 @@
+from select import select
 from django.shortcuts import render, redirect
 from teacher.models import Teacher
 from teacher.forms import TeacherForm
@@ -5,6 +6,7 @@ import os
 
 from addcourse.forms import *
 from addcourse.models import *
+from student.models import Question
 
 # Create your views here.
 def register(request):
@@ -86,3 +88,13 @@ def deletecourse(request,c_id):
     course=Course.objects.get(course_id=c_id)
     course.delete()
     return redirect ("/allcourse")
+
+def questionview(request):
+    print(request)
+    questions=Question.objects.raw('select * from question')
+    return render(request,"teacher/questiontable.html", {'questions':questions})
+
+def questiondelete(request,q_id):
+    question=Question.objects.get(question_id=q_id)
+    question.delete()
+    return redirect ("/questionview")

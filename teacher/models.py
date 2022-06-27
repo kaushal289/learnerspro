@@ -30,3 +30,4 @@ class Teachersubject(models.Model):
 
     class Meta:
         db_table="teachersubject"
+
