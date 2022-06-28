@@ -1,3 +1,4 @@
+from turtle import reset
 from django.urls import path
 from student import views 
 
@@ -17,4 +18,6 @@ urlpatterns = [
     path('questionanswer', views.questionanswer, name='questionanswer'),
     path('question', views.question, name='question'),
     path('ticket',views.ticket, name='ticket'),
+    path('clicklink/<uidb64>/<token>', views.clicklink, name='clicklink'),
+    path('student/resetpassword/<int:pk>', views.reset_password, name="resetpassword"),
 ]

@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import render
 from pprint import pprint
 from django.shortcuts import redirect, render
@@ -8,6 +9,14 @@ from django.contrib import messages
 from student.forms import StudentForm, Questionform, TicketForm
 from teacher.models import Teacher
 from django.contrib import messages
+from .utils import generate_token
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_str, force_bytes, DjangoUnicodeDecodeError
+from django.core.mail import EmailMessage
 # Create your views here.
 def studentdashboard(request):
     try:
@@ -137,5 +146,79 @@ def ticket(request):
         form = TicketForm()
     return render(request, "student/ticket.html", {'form': form})
     
+#forget password
+
+def send_forget_password_email(request, user):
+
+    subject = "Reset password link"
+
+    if request.method == "POST":
+
+        email = request.POST.get('email')
+
+    current_site = get_current_site(request)
+
+    email_body = render_to_string('student/clicklink.html', {
+
+        'user': user,
+
+        'domain': current_site,
+
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+
+        'token': generate_token.make_token(user),
 
 
+
+    })
+
+    email = EmailMessage(subject=subject,
+
+    body=email_body,
+
+    from_email= settings.EMAIL_FROM_USER,
+
+    to=[user.email]
+
+    )
+
+
+
+    email.send()
+
+def enter_email(request):
+
+    if request.method == 'POST':
+
+        email = request.POST.get('email')
+
+        if not Student.objects.filter(email=email):
+
+            messages.success(request, 'User not registered')
+
+        else:
+
+            user = Student.objects.get(email=email)
+
+            print (user.username)
+
+            send_forget_password_email(request, user)
+
+   
+
+
+
+    return render(request, 'student/enteremail.html')
+
+def clicklink(request, uidb64, token):
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = Student.objects.get(pk=uid)
+    except Exception as e:
+        user = None
+    if user and generate_token.check_token(user, token):
+        return redirect('')
+
+
+def reset_password(request, pk):
+    return render(request, "student/resetpassword.html")
