@@ -286,7 +286,7 @@ def question(request):
         if (form.is_valid()):            
             form.save()
             print('Fromn Saved')
-            return redirect("/question")
+            return redirect("/questionanswer")
     else:
         form = Questionform()
     return render(request, "student/question.html", {'form': form})
@@ -298,7 +298,7 @@ def ticket(request):
         if (form.is_valid()):
             form.save()
             print('Fromn Saved')
-            return redirect("/ticket")
+            return redirect("/")
     else:
         form = TicketForm()
     return render(request, "student/ticket.html", {'form': form})
