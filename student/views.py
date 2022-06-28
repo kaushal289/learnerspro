@@ -1,4 +1,5 @@
 from ast import Pass
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from pprint import pprint
 from django.shortcuts import redirect, render
@@ -20,10 +21,15 @@ def studentdashboard(request):
 
 def register(request):
     if request.method == "POST":
-        print(request.POST)
         form = StudentForm(request.POST,request.FILES)
-        form.save()
-        return redirect("/studentlogin")
+        username=request.POST["username"]
+        try:
+            Student.objects.get(username=username)
+            messages.error(request, 'Username already used')
+            return redirect(request.META['HTTP_REFERER'])
+        except:
+            form.save()
+            return redirect("/studentlogin") 
     else:
         form = StudentForm()
     return render(request, "reglogin/registration.html", {'form': form})
@@ -35,12 +41,11 @@ def studentlogin(request):
         password=request.POST["password"]
         try:
             print("A")
-            admin=Admin.objects.get(username=username,password=password)
+           
             teacher=Teacher.objects.get(username=username,password=password)
            
             print("B")
             print(teacher)
-            print(admin)
             if teacher is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
@@ -57,6 +62,7 @@ def studentlogin(request):
                 return render(request,"student/landingpage.html",{'users':[users]})
             except:
                 try:
+                    admin=Admin.objects.get(username=username,password=password)
                     if admin is not None:
                         request.session['username']=request.POST['username']
                         request.session['password']=request.POST['password'] 
@@ -108,10 +114,43 @@ def class7(request):
     users=Student.objects.get(student_id=request.session['student_id'])
     return render(request, "class7/class7.html",{'users':[users]})
 
+def class8(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "class8/class8.html",{'users':[users]})
+
+def class9(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "class9/class9.html",{'users':[users]})
+
+def class10(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "class10/class10.html",{'users':[users]})
+
 def class6science(request):
     users=Student.objects.get(student_id=request.session['student_id'])
     sciences=Course.objects.raw("select * from course where std_class='6' and subject='Science'")
     return render(request, "class6/class6science.html",{'users':[users],'sciences':sciences})
+
+def class7science(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    sciences=Course.objects.raw("select * from course where std_class='7' and subject='Science'")
+    return render(request, "class7/class7science.html",{'users':[users],'sciences':sciences})
+
+
+def class8science(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    sciences=Course.objects.raw("select * from course where std_class='8' and subject='Science'")
+    return render(request, "class8/class8science.html",{'users':[users],'sciences':sciences})
+
+def class9science(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    sciences=Course.objects.raw("select * from course where std_class='9' and subject='Science'")
+    return render(request, "class9/class9science.html",{'users':[users],'sciences':sciences})
+
+def class10science(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    sciences=Course.objects.raw("select * from course where std_class='10' and subject='Science'")
+    return render(request, "class10/class10science.html",{'users':[users],'sciences':sciences})
 
 
 def class6english(request):
@@ -119,10 +158,121 @@ def class6english(request):
     englishs=Course.objects.raw("select * from course where std_class='6' and subject='English'")
     return render(request, "class6/class6english.html",{'users':[users],'englishs':englishs})
 
+def class7english(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    englishs=Course.objects.raw("select * from course where std_class='7' and subject='English'")
+    return render(request, "class7/class7english.html",{'users':[users],'englishs':englishs})
+
+def class8english(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    englishs=Course.objects.raw("select * from course where std_class='8' and subject='English'")
+    return render(request, "class8/class8english.html",{'users':[users],'englishs':englishs})
+
+def class9english(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    englishs=Course.objects.raw("select * from course where std_class='9' and subject='English'")
+    return render(request, "class9/class9english.html",{'users':[users],'englishs':englishs})
+
+def class10english(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    englishs=Course.objects.raw("select * from course where std_class='10' and subject='English'")
+    return render(request, "class10/class10english.html",{'users':[users],'englishs':englishs})
+
+def class6math(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    maths=Course.objects.raw("select * from course where std_class='6' and subject='Maths'")
+    return render(request, "class6/class6math.html",{'users':[users],'maths':maths})
+
+
 def class7math(request):
     users=Student.objects.get(student_id=request.session['student_id'])
     maths=Course.objects.raw("select * from course where std_class='7' and subject='Maths'")
     return render(request, "class7/class7math.html",{'users':[users],'maths':maths})
+
+def class8math(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    maths=Course.objects.raw("select * from course where std_class='8' and subject='Maths'")
+    return render(request, "class8/class8math.html",{'users':[users],'maths':maths})
+
+def class9math(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    maths=Course.objects.raw("select * from course where std_class='9' and subject='Maths'")
+    return render(request, "class9/class9math.html",{'users':[users],'maths':maths})
+
+def class10math(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    maths=Course.objects.raw("select * from course where std_class='10' and subject='Maths'")
+    return render(request, "class10/class10math.html",{'users':[users],'maths':maths})
+
+def class6computer(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    computers=Course.objects.raw("select * from course where std_class='6' and subject='Computer'")
+    return render(request, "class6/class6computer.html",{'users':[users],'computers':computers})
+
+def class7computer(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    computers=Course.objects.raw("select * from course where std_class='7' and subject='Computer'")
+    return render(request, "class7/class7computer.html",{'users':[users],'computers':computers})
+
+def class8computer(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    computers=Course.objects.raw("select * from course where std_class='8' and subject='Computer'")
+    return render(request, "class8/class8computer.html",{'users':[users],'computers':computers})
+
+def class9computer(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    computers=Course.objects.raw("select * from course where std_class='9' and subject='Computer'")
+    return render(request, "class9/class9computer.html",{'users':[users],'computers':computers})
+
+def class10computer(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    computers=Course.objects.raw("select * from course where std_class='10' and subject='Computer'")
+    return render(request, "class10/class10computer.html",{'users':[users],'computers':computers})
+
+
+
+def class6social(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    socials=Course.objects.raw("select * from course where std_class='6' and subject='Social studies'")
+    return render(request, "class6/class6social.html",{'users':[users],'socials':socials})
+
+def class7social(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    socials=Course.objects.raw("select * from course where std_class='7' and subject='Social studies'")
+    return render(request, "class7/class7social.html",{'users':[users],'socials':socials})
+
+def class8social(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    socials=Course.objects.raw("select * from course where std_class='8' and subject='Social studies'")
+    return render(request, "class8/class8social.html",{'users':[users],'socials':socials})
+
+def class9social(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    socials=Course.objects.raw("select * from course where std_class='9' and subject='Social studies'")
+    return render(request, "class9/class9social.html",{'users':[users],'socials':socials})
+
+def class10social(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    socials=Course.objects.raw("select * from course where std_class='10' and subject='Social studies'")
+    return render(request, "class10/class10social.html",{'users':[users],'socials':socials})
+
+
+def class7account(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    accounts=Course.objects.raw("select * from course where std_class='7' and subject='Accounts'")
+    return render(request, "class7/class7account.html",{'users':[users],'accounts':accounts})
+
+
+def class9account(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    accounts=Course.objects.raw("select * from course where std_class='9' and subject='Accounts'")
+    return render(request, "class9/class9account.html",{'users':[users],'accounts':accounts})
+
+def class10account(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    accounts=Course.objects.raw("select * from course where std_class='10' and subject='Accounts'")
+    return render(request, "class10/class10account.html",{'users':[users],'accounts':accounts})
+
 
 
 
@@ -136,7 +286,7 @@ def question(request):
         if (form.is_valid()):            
             form.save()
             print('Fromn Saved')
-            return redirect("/question")
+            return redirect("/questionanswer")
     else:
         form = Questionform()
     return render(request, "student/question.html", {'form': form})
@@ -148,7 +298,7 @@ def ticket(request):
         if (form.is_valid()):
             form.save()
             print('Fromn Saved')
-            return redirect("/ticket")
+            return redirect("/")
     else:
         form = TicketForm()
     return render(request, "student/ticket.html", {'form': form})

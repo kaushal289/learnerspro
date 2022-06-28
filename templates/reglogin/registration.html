@@ -16,20 +16,25 @@
         <div class="form">
             <div class="heading">
                 <h1>Register here for free</h1>
+                <div class="messages" style="color: red;">
+                    {% for message in messages %}
+                    {{message}}
+                    {% endfor %}
+                </div>
             </div>
             <form id="form" action="/studentregister " method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="wrap" id="form">
                 <div class="first">
                     <label>First Name:</label>
-                    <input name="student_firstname" pattern="(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})" 
+                    <input name="student_firstname" pattern="[a-zA-Z]+" 
                     id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
                     oninput="this.setCustomValidity('')"  required>
                     <span class="focus-input"></span>
                 </div>
                 <div class="last">
                     <label>Last Name:</label>
-                    <input name="student_lastname" id="lname" type="text" pattern="(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})" 
+                    <input name="student_lastname" id="lname" type="text" pattern="[a-zA-Z]+" 
                     id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
                     oninput="this.setCustomValidity('')" placeholder="Enter your Last Name">
                     <span class="focus-input"></span>
@@ -37,7 +42,7 @@
             </div>
             <div class="wrap1">
                 <label>Username:</label>
-                <input name="username" id="username" type="text" pattern="(^[A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})?([ ]{0,1})?([A-Za-z]{3,16})" 
+                <input name="username" id="username" type="text" pattern="[a-zA-Z]+" 
                 id="name" type="text" placeholder="Enter your First Name" oninvalid="this.setCustomValidity('Only use string here')"
                 oninput="this.setCustomValidity('')" placeholder="Enter a username">
                 <span class="focus-input"></span>

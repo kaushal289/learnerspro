@@ -1,0 +1,16 @@
+{% extends "studentdashboard.html" %}
+{% block content %}
+{% load static %}
+<div class="col-lg-11 container-fluid" id="english">
+    <h1>English</h1>
+        <div class="row justify-content-center"> 
+            {% for english in englishs %}
+            <div class="col-md-3 prouctitem">
+                <h6 class="desc"><b>{{english.topic}}</b></h6>
+                <button onclick="window.open(src='{% static 'assets/' %}{{english.content}}');">Open</button>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+
+{% endblock %}

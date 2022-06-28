@@ -1,0 +1,134 @@
+Total word count: 4000
+
+Front end:1000
+Back end:1000
+Database:1000
+Testing:1000
+
+
+=======================================================================
+Frontend: 
+->Introduction(250 words)
+=tools you have used
+=why?
+=what
+
+->Divisible each(750 words)
+=HTML
+=CSS
+=JS
+=Jquery
+=Bootstrap
+=======================================================================
+
+=======================================================================
+Backend:
+=Introduction about flask and django(250 words)
+=Advantage and disadvantage at flask and django(250 words)
+=(Core structure of django and explanation
+=Why you chosed it?) -> (500 words)
+=======================================================================
+	
+INTRODUCTION
+
+1) Why <project name>
+2) Introduction of the system
+3) Features of the system                                 (250 words)
+4) Aims
+5) Objectives
+6) What I have learned
+
+Analysis
+
+1) Use case diagaram
+2) Rich Picture -> if possible                            (500 words)
+3) Natural language analysis
+
+Frontend
+
+1) Introduction of technology used
+2) Describe each HTML, CSS, Js, ......
+3) Why you have chosen and what are the alternatives
+4) Challenges of web development                          (2000 words)
+	-> Accessibility
+	-> Compatibility
+	-> Usuability
+	-> Responsive
+5) How you have dealed with challenges
+6) Importance of responsive usuability
+7) Screenshots of each
+8) Conclusion
+
+Backend 
+1) Introduction of technology used
+2) Describe flask and django
+3) Why you used django
+4) Advantage and disadvantage of django
+5) Features of django                                      (Class diagram)
+6) Screenshots with proper explanation
+7) Conclusion
+
+Database
+1) Introduction to technology used
+2) Describe MySQL, Postgres
+3) Why you used MySQL, Postgress                           (ER Diagram)
+4) Advantages and disadvantages  of MySQL vs Postgress
+5) Features of MySQL
+6) How to integate with django
+7) Screenshot with explanation
+8) Conclusion
+
+
+Testing
+1) Types of testing
+2) What type of testing you have done
+3) Write test cases
+
+
+Project Issues
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
