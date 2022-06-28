@@ -15,6 +15,8 @@ class Teacher(models.Model):
     class Meta:
         db_table="teacher"
 
+<<<<<<< HEAD
+=======
 class Teachersubject(models.Model):
     class NewManager(models.Manager):
         def get_queryset(self):
@@ -31,3 +33,4 @@ class Teachersubject(models.Model):
     class Meta:
         db_table="teachersubject"
 
+>>>>>>> d917b937f1a052f9265788b94fee311e4bfe29ef
