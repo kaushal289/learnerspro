@@ -20,4 +20,5 @@ urlpatterns = [
     path('ticket',views.ticket, name='ticket'),
     path('clicklink/<uidb64>/<token>', views.clicklink, name='clicklink'),
     path('student/resetpassword/<int:pk>', views.reset_password, name="resetpassword"),
+    path('student/enteremail', views.enter_email, name='enteremail')
 ]

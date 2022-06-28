@@ -3,6 +3,8 @@ from django.shortcuts import render
 from pprint import pprint
 from django.shortcuts import redirect, render
 import os
+
+from pkg_resources import require
 from addcourse.models import Course
 from student.models import Student
 from django.contrib import messages
@@ -181,9 +183,6 @@ def send_forget_password_email(request, user):
     to=[user.email]
 
     )
-
-
-
     email.send()
 
 def enter_email(request):
@@ -204,9 +203,6 @@ def enter_email(request):
 
             send_forget_password_email(request, user)
 
-   
-
-
 
     return render(request, 'student/enteremail.html')
 
@@ -217,8 +213,21 @@ def clicklink(request, uidb64, token):
     except Exception as e:
         user = None
     if user and generate_token.check_token(user, token):
-        return redirect('')
+        return redirect('resetpassword', pk=user.student_id)
 
 
 def reset_password(request, pk):
+    user = Student.objects.get(student_id=pk)
+    if request.method == 'POST':
+         password = request.POST.get("new_password")
+         cpassword = request.POST.get("confirm_password")
+
+
+        
+         if password == cpassword:
+             user.password = password
+             user.save()
+
+             return redirect('studentlogin')
+
     return render(request, "student/resetpassword.html")
