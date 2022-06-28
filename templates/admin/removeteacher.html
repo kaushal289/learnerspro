@@ -15,14 +15,14 @@
                                 <th>Actions</th>
                             </tr>
                          </thead>
-
+                         {% for teacher in teachers %}
                             <tr class="tbody">
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
-                                    <td> </td>
+                                    <td>{{teacher.teacher_id}}</td>
+                                    <td>{{teacher.username}}</td>
+                                    <td>{{teacher.email}}</td>
+                                    <td>{{teacher.phone_number}}</td>
                                  <td>
-                                     <a href="/questiondelete/{{question.question_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-danger">Delete</button></a>
+                                     <a href="/teacherdelete/{{teacher.teacher_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-danger">Delete</button></a>
                                  </td>
                             </tr>
                         {% endfor %}

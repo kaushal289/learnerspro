@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from student.models import Ticket
-from teacher.forms import TeacherForm
+from teacher.forms import TeacherForm, Teacher
+from teacher.models import Teacher
 # Create your views here.
 def admindash(request):
     return render(request, "admindashboard.html")
@@ -21,7 +22,17 @@ def addteacher(request):
         form = TeacherForm(request.POST)
         form.save()
         user1=form.cleaned_data.get('username')
-        return redirect("/admindash")
+        return redirect("/teacherview")
     else:
         form = TeacherForm()
     return render(request, "admin/addteacher.html", {'form': form})
+
+def teacherview(request):
+    print(request)
+    teachers=Teacher.objects.raw('select * from teacher')
+    return render(request,"admin/removeteacher.html", {'teachers':teachers})
+
+def teacherdelete(request,td_id):
+    teacher=Teacher.objects.get(teacher_id=td_id)
+    teacher.delete()
+    return redirect ("/teacherview")
