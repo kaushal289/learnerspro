@@ -1,8 +1,13 @@
+<<<<<<< HEAD
+
+=======
 from select import select
+>>>>>>> 0a75ca3717b602bd05567c0daefc1309c0e09115
 from django.shortcuts import render, redirect
 from teacher.models import Teacher
 from teacher.forms import TeacherForm
 import os
+
 
 from addcourse.forms import *
 from addcourse.models import *
@@ -14,7 +19,6 @@ def register(request):
         print(request.POST)
         form = TeacherForm(request.POST)
         form.save()
-        user1=form.cleaned_data.get('username')
         return redirect("/studentlogin")
     else:
         form = TeacherForm()
@@ -29,6 +33,31 @@ def teachersubject(request):
 def logout(request):
     request.session.clear()
     return redirect('/')
+
+def teacherprofile(request,s_id):
+    try:
+        users=Teacher.objects.get(teacher_id=s_id)
+        return render(request,"teacher/teacherprofile.html",{'users':[users]})
+    except:
+        print("No Data Found")
+    return render(request,"teacher/teacherprofile.html",{'users':[users]})
+
+def profileupdate(request,s_id):
+    Teacher=Teacher.objects.get(teacher_id=s_id)
+    if request.method=="POST":
+        try:
+            if len(request.FILES) != 0:
+                if len(Teacher.image)>0:
+                    os.remove(Teacher.image.path)
+                Teacher.image=request.FILES['image']
+        except:
+            Teacher.image=request.FILES['image']
+    form=TeacherForm(request.POST, instance=Teacher)
+    form.save()
+    request.session['username']=request.POST['username']
+    users=Teacher.objects.get(teacher_id=s_id)
+    return render(request,"teacher/teacherprofile.html",{'users':[users]})
+
 
 def addsubject(request):
     if request.method == "POST":
