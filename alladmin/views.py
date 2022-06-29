@@ -3,4 +3,7 @@ from django.shortcuts import render
 def admindash(request):
     return render(request, "admindashboard.html")
 
+def updatepassword(request):
+    return render (request, "admin/updatepassword.html")
+
 
