@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-=======
 from select import select
->>>>>>> 0a75ca3717b602bd05567c0daefc1309c0e09115
 from django.shortcuts import render, redirect
 from teacher.models import Teacher
 from teacher.forms import TeacherForm

@@ -13,9 +13,6 @@ from django.contrib import messages
 from student.forms import StudentForm, Questionform, TicketForm
 from teacher.models import Teacher
 from django.contrib import messages
-<<<<<<< HEAD
-
-=======
 from .utils import generate_token
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -24,7 +21,6 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_str, force_bytes, DjangoUnicodeDecodeError
 from django.core.mail import EmailMessage
->>>>>>> 0a75ca3717b602bd05567c0daefc1309c0e09115
 # Create your views here.
 def studentdashboard(request):
     try:

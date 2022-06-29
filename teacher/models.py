@@ -15,10 +15,3 @@ class Teacher(models.Model):
     class Meta:
         db_table="teacher"
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 0a75ca3717b602bd05567c0daefc1309c0e09115
->>>>>>> 512170744202583857623115d51be01d8dd6f62e
