@@ -15,22 +15,3 @@ class Teacher(models.Model):
     class Meta:
         db_table="teacher"
 
-<<<<<<< HEAD
-=======
-class Teachersubject(models.Model):
-    class NewManager(models.Manager):
-        def get_queryset(self):
-            return super().get_queryset()
-
-    subject_id = models.AutoField(auto_created=True, primary_key=True)
-    subject_name = models.CharField(max_length=100, blank=True)
-    subject_desc = models.CharField(max_length=250, blank=True)
-    s_genre=models.CharField(max_length=100, blank=True)
-    s_pic= models.FileField(upload_to='books', blank=True)
-    objects=models.Manager() #default manager
-    newmanager= NewManager() #custom manager
-
-    class Meta:
-        db_table="teachersubject"
-
->>>>>>> d917b937f1a052f9265788b94fee311e4bfe29ef
