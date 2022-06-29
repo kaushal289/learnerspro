@@ -15,4 +15,6 @@ urlpatterns = [
     path('editcourse/<int:c_id>',views.editcourse, name = "editcourse"),
     path('courseupdate/<int:c_id>',views.courseupdate, name = "courseupdate"),
     path('deletecourse/<int:c_id>',views.deletecourse, name = "deletecourse"),
+    path('questionview',views.questionview, name="questionview"),
+    path('questiondelete/<int:q_id>',views.questiondelete, name = "questiondelete"),
 ]
