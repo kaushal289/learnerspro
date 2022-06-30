@@ -33,7 +33,7 @@ def addteacher(request):
 def teacherview(request):
     print(request)
     teachers=Teacher.objects.raw('select * from teacher')
-    return render(request,"admin/removeteacher.html", {'teachers':teachers})
+    return render(request,"admin/teacherview.html", {'teachers':teachers})
 
 def teacherdelete(request,td_id):
     teacher=Teacher.objects.get(teacher_id=td_id)
