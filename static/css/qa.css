@@ -7,7 +7,6 @@ body{
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
-    background-image: url('/static/img/new.png');
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(0.5px);
@@ -21,10 +20,10 @@ div{
     font-family: 'Poppins',sans-serif;
     font-size: 35px;
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 700;
+    text-shadow: 10px;
     color: black;
     text-align: center;
-    background-color: antiquewhite;
     -webkit-font-smoothing:antialiased;
     text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
@@ -86,14 +85,14 @@ h1, h2, h3, h4, h5, h6{
 }
 .banner{
     width: 100%;
-    margin-top: 100px;
+    margin-top: 30px;
 }
 .banner_item{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    height: 80vh;
+    height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -106,7 +105,7 @@ h1, h2, h3, h4, h5, h6{
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    height: 80vh;
+    height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

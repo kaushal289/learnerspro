@@ -26,27 +26,27 @@ h5{
 }
 
 @media(min-width:992px) {
-    img {
-        width: 600px;
-        height: 500px
+    .imag {
+        width: 600px !important;
+        height: 500px !important;
     }
 }
 
 @media(max-width:991px) {
-    img {
+    .imag {
         display: none
     }
 
 }
 
 @media(max-width:768px) {
-    img {
+    .imag {
         display: none
     }
 }
 
 @media(max-width:567px) {
-    img {
+    .imag {
         display: none
     }
 

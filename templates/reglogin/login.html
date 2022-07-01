@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+
+{% load static %}
 <html lang="en">
 <head>
     {% load static %}
@@ -14,12 +18,10 @@
     <div class="container bg-white pb-4">
         <div class="row d-flex justify-content-start align-items-center mt-sm-5">
             <div class="col-lg-5 col-10">
-                <div class="pb-10"> <img src="{% static 'img/im.png' %}" alt=""> </div>
+                <div class="pb-10"> <img src="{% static 'img/im.png' %}" alt="" class=" imag"> </div>
             </div>
             <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
-                <div class="pt-4">
-                    <h6>Learner's Pro</h6>
-                </div>
+                
                 <div class="mt-3 mt-md-3">
                     <h5>Sign in to your account</h5>
                     <div class="messages" style="color: red;">
@@ -50,3 +52,4 @@
     </div>
 </body>
 </html>
+{% endblock %}
