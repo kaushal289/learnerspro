@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from alladmin.forms import AdminForm
+from alladmin.models import Admin
 from student.models import Ticket
 from teacher.forms import TeacherForm, Teacher
 from teacher.models import Teacher
@@ -6,16 +8,23 @@ from teacher.models import Teacher
 def admindash(request):
     return render(request, "admindashboard.html")
 
-<<<<<<< HEAD
 def updatepassword(request):
+    user=request.session['username']
+    return render (request, "admin/updatepassword.html",{'user':user})
+
+def updatepasswordfield(request,a_id):
+    admin=Admin.objects.get(admin_id=a_id)
+    form=AdminForm(request.POST,instance=admin)
+    form.save()
     return render (request, "admin/updatepassword.html")
 
-=======
+
+
 def ticketview(request):
     print(request)
     tickets=Ticket.objects.raw('select * from ticket')
     return render(request,"admin/tickettable.html", {'tickets':tickets})
->>>>>>> 0a75ca3717b602bd05567c0daefc1309c0e09115
+
 
 def ticketdelete(request,t_id):
     ticket=Ticket.objects.get(ticket_id=t_id)
