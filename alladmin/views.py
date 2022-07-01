@@ -18,13 +18,19 @@ def updatepasswordfield(request,a_id):
     form.save()
     return render (request, "admin/updatepassword.html")
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 384ec8fd38352e2c4150146c41f2c795daef07fc
 def ticketview(request):
     print(request)
     tickets=Ticket.objects.raw('select * from ticket')
     return render(request,"admin/tickettable.html", {'tickets':tickets})
+<<<<<<< HEAD
 
+=======
+>>>>>>> 384ec8fd38352e2c4150146c41f2c795daef07fc
 
 def ticketdelete(request,t_id):
     ticket=Ticket.objects.get(ticket_id=t_id)
