@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .white a {
 	color: #fff;
 }
@@ -13,7 +16,10 @@ h4
     {
         font-weight: bold;
     }
-p { line-height: 1.6em; }
+p { line-height: 1.6em; 
+    font-size: large;
+    text-align: justify;
+}
 .btn-primary{
     background-color: #5a6ff5;
     border-color:#1a8bfb;
@@ -58,9 +64,10 @@ img
     }
 #feature
     {
-        background: #f8f8f8;
-        padding-top: 60px;
-        padding-bottom: 60px;
+        background: #ffffff;
+        padding:30px;
+        margin-top: 30px;
+
     }
 #feature p
     {
@@ -206,9 +213,6 @@ img
         padding: 20px;
     }
 @media screen and ( max-width: 991px ) {
-    .templatemo-box {
-        margin-bottom: 30px;
-    }
     #pricing .active {
         bottom: 0;
     }
@@ -246,9 +250,26 @@ img
     color: black;
     text-align: center;
 }
-.templatemo-box{
-    border: 5px solid rgba(1, 22, 255, 0.379);
-}
 .images{
     height: 300px;
+}
+.featurimg{
+    height: 350px !important;
+    width: 400px !important;
+    
+}
+.fimg{
+    text-align: center;
+}
+#feature{
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+#feature1{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+.fa-check-circle-o:before {
+    font-size: 40px;
+}
+.text-uppercase{
+    text-align: center;
 }
