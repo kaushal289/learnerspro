@@ -6,7 +6,7 @@
 body{
   margin: 0px;
   padding: 0px;
-  
+  background-color: rgb(244, 251, 255) !important;
   
 }
 
@@ -50,6 +50,7 @@ body{
 
 .button1, .button2{
   font-size: 20px !important;
+  border-radius: 20px !important;
 }
 .backgroundimg{
   position: absolute;
@@ -94,7 +95,7 @@ body{
 }
 
 .navbar a:hover {
-  color: #04AA6D;
+  color: #00b975 !important;
 }
 
 @media screen and (max-width: 600px) {
@@ -178,7 +179,7 @@ content: '';
 
 .button:hover {
   transform: translateY(-6px);
-  border-color: turquoise;
+  border-color: rgb(27, 179, 163);
   border-style: solid;
   border-width: 5px;
 }
@@ -253,7 +254,7 @@ content: '';
 
 .dropdown-content a {
   color: black;
-  background-color: #58c5f872;
+  background-color: #58c5f8d2;
   text-decoration: none;
   display: block;
   border-radius: 30px;
@@ -299,9 +300,7 @@ h1{
   opacity: 0.4; 
 }
 
-#product,#cap,#sweeter,#swal,#panchu{
-  box-shadow: 0 -10px 5px -5px rgba(0, 0, 0, 0.081);
-}
+
 .prouctitem{
   border-radius: 5px;
   background-color: rgba(255, 255, 255);
@@ -422,9 +421,18 @@ width: 100%;
 border-radius: 5px;
 margin-bottom: 5px;
 }
-button {
-background-color: #c7940a;
-color: #ffffff;
+.dropdown-content button {
+  background-color: transparent;
+  font-size: 20px !important;
+  border-color: #0055ff !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  border-radius: 5px;
+  border-width: 00.05em;
+  color:#0055ff;
+}
+.dropdown-content button:hover{
+  color: white !important;
 }
 div.social {
 display: flex;
@@ -490,7 +498,7 @@ text-align: right;
     padding:65px 0;
 }
 footer {
-  background-color: #b2c1e3;
+  background-color: rgba(179, 213, 249, 0.927);;
   color: #000000;
   font-size: 16px;
 }
@@ -552,9 +560,10 @@ button {
   border-radius: 5px;
   margin-bottom: 5px;
 }
-button {
-  background-color: #c7940a;
+.prouctitem button {
+  background-color: #110072;
   color: #ffffff;
+  font-size: 20px !important;
 }
 div.social {
   display: flex;
@@ -570,6 +579,13 @@ div.social {
 .copyright {
   padding: 0.3em 1em;
   background-color: #25262e;
+}
+.prouctitem button{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: auto;
 }
 
 
@@ -608,4 +624,39 @@ h5 {
   
 .foo{
   margin-top: 30px !important;
+}
+.desc{
+  margin: 20px;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+h1{
+
+  text-transform: uppercase;
+  font-weight: 1000 !important;
+}
+.col-lg-11 h1{
+  margin: 30px;
+  font-size: 40px !important;
+}
+.row {
+  --bs-gutter-x: 0 !important;
+}
+.update{
+  margin-top: 30px !important;
+  background-color: #f3f4ff;
+}
+.profimg{
+  background-color: #f5f3ff;
+}
+.text-center{
+  text-align: center !important;
+  text-transform: uppercase;
+  font-weight: 1000 !important;
+}
+.active1{
+  background-color: #0055ff !important;
+  color:white !important;
+  height: auto !important;
+  border-radius: 20px !important;
 }

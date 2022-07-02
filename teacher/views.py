@@ -1,5 +1,6 @@
 from select import select
 from django.shortcuts import render, redirect
+from student.forms import Questionform
 from teacher.models import Teacher
 from teacher.forms import TeacherForm
 import os
@@ -144,4 +145,16 @@ def questionview(request):
 def questiondelete(request,q_id):
     question=Question.objects.get(question_id=q_id)
     question.delete()
+    return redirect ("/questionview")
+def editquestion(request,q_id):
+    try:
+        question=Question.objects.get(question_id=q_id)
+        return render(request, "teacher/answer.html", {'question':question})
+    except:
+        print("No Data Found")
+    return redirect ("/questionview")
+def updatequestion(request,q_id):
+    question=Question.objects.get(question_id=q_id)
+    form=Questionform(request.POST, instance=question)
+    form.save()
     return redirect ("/questionview")

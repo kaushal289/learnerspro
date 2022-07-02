@@ -22,7 +22,7 @@
                                     <td>{{question.subject}}</td>
                                     <td>{{question.question}}</td>
                                  <td>
-                                     <a href="/editcourse/{{course.course_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-success">Edit</button>{{customer.customer_id}}</a>
+                                     <a href="/editquestion/{{question.question_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-success">Edit</button></a>
                                      |
                                      <a href="/questiondelete/{{question.question_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-danger">Delete</button></a>
                                  </td>
@@ -45,5 +45,4 @@
                 </div>
             </div>
         </div>
-
 {% endblock %}

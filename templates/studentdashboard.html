@@ -14,7 +14,7 @@
     </head>
     <body>
       <div class="container-fluid">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="myDIV">
                 <div class="container-fluid" id="body">
                     <div class="company d-flex justify-content-center">
                         <img src="{% static 'img/logo.png' %}">
@@ -25,19 +25,19 @@
                     </div> 
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav col-lg-7 d-flex justify-content-center">
-                            <a class="btn" href="/#body">Home</a> 
+                        <div class="navbar-nav col-lg-7 d-flex justify-content-center" >
+                            <a class="btn btns active1" href="/#body">Home</a> 
                             <div class="dropdown d-flex justify-content-center">
-                                <a class="dropbtn" for="btnControl">Grade↓</a>
+                                <a class="dropbtn btns" for="btnControl">Grade↓</a>
                                 <div class="dropdown-content">
-                                    <a class="btn" href="/class6" >Grade 6</a>
-                                    <a class="btn" href="/class7">Grade 7</a>
-                                    <a class="btn" href="/class8">Grade 8</a>
-                                    <a class="btn" href="/class9">Grade 9</a>
-                                    <a class="btn" href="/class10">Grade 10</a>
+                                    <a class="btn btns" href="/class6" >Grade 6</a>
+                                    <a class="btn btns" href="/class7">Grade 7</a>
+                                    <a class="btn btns" href="/class8">Grade 8</a>
+                                    <a class="btn btns" href="/class9">Grade 9</a>
+                                    <a class="btn btns" href="/class10">Grade 10</a>
                                   </div>
                             </div>
-                            <a class="btn" href="/questionanswer" id="ab">Q&A</a>
+                            <a class="btn btns" href="/questionanswer" id="ab">Q&A</a>
                             <a class="btn" href="/#about" id="ab">About</a> 
                             
                         </div>
@@ -52,13 +52,13 @@
                                 </a>
                                 <div class="dropdown-content">
                                     
-                                  <a href="/studentprofile/{{request.session.student_id}}"><button type="button"   class="button1 btn btn-outline-success">
+                                  <a href="/studentprofile/{{request.session.student_id}}"><button type="button"   class=" btn btns btn-outline-success">
                                 </i>Update profile</button></a>
 
-                                <a href="/ticket"><button type="button"   class="button2 btn btn-outline-primary">
+                                <a href="/ticket"><button type="button"   class="btn btn-outline-primary btns">
                                 </i>Ticket</button></a>
                                 
-                                <a href="/logout"><button type="button"   class="button2 btn btn-outline-primary">
+                                <a href="/logout"><button type="button"   class="btn btn-outline-primary btns">
                                 </i>logout</button></a>
                             </span>
                         </span>
