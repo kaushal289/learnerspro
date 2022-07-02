@@ -10,6 +10,7 @@ body{
     background-size: cover;
     background-attachment: fixed;
     backdrop-filter: blur(0.5px);
+    background-color: rgba(220, 213, 255, 0.41);
 }   
 div{
     display: block;

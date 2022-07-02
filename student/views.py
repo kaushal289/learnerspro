@@ -7,7 +7,7 @@ import os
 
 from pkg_resources import require
 from addcourse.models import Course
-from student.models import Student
+from student.models import Question, Student
 from alladmin.models import Admin
 from django.contrib import messages
 from student.forms import StudentForm, Questionform, TicketForm
@@ -287,9 +287,11 @@ def class10account(request):
 
 
 def questionanswer(request):
-    return render(request, "student/qa.html")
+    users=Student.objects.get(student_id=request.session['student_id'])
+    return render(request, "student/qa.html",{'users':[users]})
 
 def question(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
     if request.method == "POST":
         print(request.POST)
         form = Questionform(request.POST,request.FILES)
@@ -299,7 +301,7 @@ def question(request):
             return redirect("/questionanswer")
     else:
         form = Questionform()
-    return render(request, "student/question.html", {'form': form})
+    return render(request, "student/question.html", {'users':[users],'form': form})
 
 def ticket(request):
     if request.method == "POST":
@@ -387,8 +389,6 @@ def reset_password(request, pk):
          password = request.POST.get("new_password")
          cpassword = request.POST.get("confirm_password")
 
-
-        
          if password == cpassword:
              user.password = password
              user.save()
@@ -396,3 +396,9 @@ def reset_password(request, pk):
              return redirect('studentlogin')
 
     return render(request, "student/resetpassword.html")
+
+def getanswer(request):
+    users=Student.objects.get(student_id=request.session['student_id'])
+    answers=Question.objects.filter(student=request.session['student_id'])
+    return render(request,"student/getanswer.html", {'users':[users],'answers':answers})
+

@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+
+{% load static %}
 <html lang="en">
 
 <head>
@@ -12,8 +16,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="form">
+    <div class="container cont">
+        <div class="form for">
             <div class="heading">
                 <h1>Ask your question</h1>
             </div>
@@ -22,8 +26,9 @@
                 <div class="wrap" id="form">
                     <div class="first">
                         <label>Your Name:</label>
-                        <input name="name" id="name" type="text" value="">
-                        
+                        {% for user in users %}
+                        <input name="name" id="name" type="text" value="{{user.username}}" readonly>
+                        {% endfor %}
                     </div>
                     <div class="last">
                         <label>Subject:</label>
@@ -40,9 +45,10 @@
                 <div class="wrap1">
                     <label>Question:</label>
                     <textarea name="question" id="question" type="text" value=""></textarea>
+                    <input name="student" value="{{request.session.student_id}}" hidden>
                 </div>
                 <div id ="nameerror"></div>
-                <button class="btn" type="submit" value="submit">Submit your question.</button>
+                <button class="btn1 d-flex d-flex align-items-center justify-content-center" type="submit" value="submit">Submit your question.</button>
                 <p>Note: You will recieve your asnwer once the allocated teacher has suubmitted it.</p>
             </form>
         </div>
@@ -50,3 +56,4 @@
 </body>
 
 </html>
+{% endblock %}

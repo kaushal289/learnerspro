@@ -97,6 +97,15 @@ def editcourse(request,c_id):
         print("No Data Found")
     return redirect ("/allcourse")
 
+def answer(request,a_id):
+    try:
+        course=Course.objects.get(course_id=a_id)
+        print(course)
+        return render(request, "teacher/editcourse.html", {'course':course})
+    except:
+        print("No Data Found")
+    return redirect ("/allcourse")
+
 def courseupdate(request,c_id):
     course=Course.objects.get(course_id=c_id)
     if request.method=="POST":
@@ -116,8 +125,21 @@ def deletecourse(request,c_id):
 
 def questionview(request):
     print(request)
-    questions=Question.objects.raw('select * from question')
-    return render(request,"teacher/questiontable.html", {'questions':questions})
+    if (request.method == "POST"):
+        page = int(request.POST['page'])
+        if ('prev' in request.POST):
+            page = page - 1
+        if ('next' in request.POST):
+            page = page + 1
+        tempOffSet = page - 1
+        offset = tempOffSet * 6
+        print(offset)
+    else:
+        offset = 0
+        page = 1
+    questions=Question.objects.raw('select * from question limit 6 offset % s', [offset])
+    pageItem = len(questions)
+    return render(request,"teacher/questiontable.html", {'questions':questions,'page': page, 'pageItem': pageItem})
 
 def questiondelete(request,q_id):
     question=Question.objects.get(question_id=q_id)

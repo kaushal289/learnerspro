@@ -4,11 +4,8 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url('/static/img/new.png');
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: rgba(220, 213, 255, 0.41);
 }
 .heading{
     width: 80%;
@@ -40,18 +37,18 @@ select{
     border: 2px solid black;
     border-radius: 5px  ;
 }
-.container{
+.cont{
     width: 50%;
-    position: absolute;
+    margin-top: 30px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
     height: 80vh;
     background-color: white;
-    display:flex;
     box-shadow: 5px;
     border: 5px solid black;
     border-radius: 10px;
+    background-image: url('/static/img/new.png');
+    background-size: cover;
 }
 .form{
     display: flex;
@@ -59,6 +56,7 @@ select{
     align-items: center;
     flex-direction: column;
     width: 100%;
+    background-color: #ffffffb3;
 }
 form{
     display: flex;
@@ -87,7 +85,7 @@ form{
     position: relative;
 }
 
-.btn{
+.btn1{
     font-size: 20px;
     margin-top: 20px;
     width: 300px;
@@ -101,7 +99,7 @@ form{
     border: 2px solid black;
     transition-duration: 0.5s;
 }
-.btn:hover{
+.btn1:hover{
     background-color: #414141;
     color: white;
 
@@ -182,4 +180,15 @@ a:hover{
 }
 #nameerror{
     color: red;
+}
+.answers{
+    margin: 30px;
+    border-radius: 10px;
+    border-color: black;
+    border: solid;
+    height: auto;
+    background-color: #baffb7;
+}
+.all{
+    font-size: 20px;
 }
