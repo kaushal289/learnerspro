@@ -22,9 +22,9 @@
                     New approaches are typically thought to have a significant impact on education. Talking of features, 
                     this website has three distinct dashboards for students, teachers, and admins. 
                 </p>
-                <p><span><i class="fa fa-check-circle-o icon"></i></span>Students can obtain educational materials.</p>
-                <p><span><i class="fa fa-check-circle-o icon"></i></span>Teachers can provide educational materials.</p>
-                <p><span><i class="fa fa-check-circle-o icon"></i></span>Admins can manage both students and teachers.</p>
+                <p><span><i class="fa">☑</i></span>Students can obtain educational materials.</p>
+                <p><span><i class="fa">☑</i></span>Teachers can provide educational materials.</p>
+                <p><span><i class="fa">☑</i></span>Admins can manage both students and teachers.</p>
             </div>
             <div class="col-md-5 fimg">
                 <img src="static/img/features.png" class="img-responsive img-rounded featurimg">
@@ -44,9 +44,9 @@
                 <p>You can create an account by simply filling the registration form.
                     After registration only you can have access to the courses.
                 </p>
-                <p><i class="fa fa-check-circle-o icon"></i>24 hours availability(You can access this website any time you like.)</p>
-                <p><i class="fa fa-check-circle-o icon"></i>You can have access to the content provided by teacher after login.</p>
-                <p><i class="fa fa-check-circle-o icon"></i>You can also download the course content(photos, document, videos and so on) you like.</p>
+                <p><i class="fa">☑</i>24 hours availability(You can access this website any time you like.)</p>
+                <p><i class="fa">☑</i>You can have access to the content provided by teacher after login.</p>
+                <p><i class="fa">☑</i>You can also download the course content(photos, document, videos and so on) you like.</p>
             </div>
         </div>
     </div>
@@ -72,7 +72,11 @@
                         </p>
 
                     </ul>
-                    <button class="btn btn-primary text-uppercase">Sign up</button>
+                    {% if request.session.username %}
+                    <a href="/class6"><button class="btn btn-primary text-uppercase" >Open Class 6 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
@@ -86,7 +90,11 @@
                             Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
 
                     </ul>
-                    <button class="btn btn-primary text-uppercase">Sign up</button>
+                    {% if request.session.username %}
+                    <a href="/class7"><button class="btn btn-primary text-uppercase" >Open Class 7 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
@@ -100,7 +108,11 @@
                             English, Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
 
                     </ul>
-                    <button class="btn btn-primary text-uppercase">Sign up</button>
+                    {% if request.session.username %}
+                    <a href="/class8"><button class="btn btn-primary text-uppercase" >Open Class 8 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
@@ -114,7 +126,11 @@
                             English, Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
 
                     </ul>
-                    <button class="btn btn-primary text-uppercase">Sign up</button>
+                    {% if request.session.username %}
+                    <a href="/class9"><button class="btn btn-primary text-uppercase" >Open Class 9 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
                 </div>
             </div>
             <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
@@ -129,7 +145,11 @@
                             English, Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
 
                     </ul>
-                    <button class="btn btn-primary text-uppercase">Sign up</button>
+                    {% if request.session.username %}
+                    <a href="/class10"><button class="btn btn-primary text-uppercase" >Open Class 10 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
                 </div>
             </div>
             

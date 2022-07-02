@@ -25,7 +25,7 @@
                     </div> 
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav col-lg-7 d-flex justify-content-center" >
+                        <div class="navbar-nav col-lg-7 d-flex justify-content-center align-items-center" >
                             <a class="btn btns active1" href="/#body">Home</a> 
                             <div class="dropdown d-flex justify-content-center">
                                 <a class="dropbtn btns" for="btnControl">Grade↓</a>
@@ -46,8 +46,14 @@
                             <span class="dropdown d-flex justify-content-center">
 
                                 <a class="dropbtn1" for="btnControl">
+
                                     {% for user in users %}
+                                    {% if user.image|length > 0 %}
                                     <img class="rounded-circle imgprof" src="{% static 'assets/' %}{{user.image}}" class="font-weight-bold">
+                                    
+                                    {% else %}
+                                    <img class="rounded-circle imgprof" src="{% static 'img/profile.png' %}" class="font-weight-bold">
+                                    {% endif %}
                                     {% endfor %}
                                 </a>
                                 <div class="dropdown-content">

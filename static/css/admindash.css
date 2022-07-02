@@ -27,8 +27,7 @@
 
 #wrapper {
   overflow-x: hidden;
-  background: rgb(48,74,208);
-  background: radial-gradient(circle, rgb(148, 158, 211) 0%, rgb(154, 178, 224) 21%, rgb(151, 174, 228) 50%, rgb(176, 142, 219) 78%, rgb(148, 154, 219) 100%, rgb(228, 135, 152) 100%);
+  background: rgb(154, 198, 188);
 
 }
 

@@ -9,9 +9,13 @@
             {% for user in users %}
             <div class="col-md-3 border-right profimg">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5 ">
+                    {% if user.image|length > 0 %}
                     <img class="rounded-circle mt-5" width="200px" height="200px" src="{% static 'assets/' %}{{user.image}}" class="font-weight-bold">
+                    {% else %}
+                    <img class="rounded-circle mt-5" width="200px" height="200px" src="{% static 'img/profile.png' %}" class="font-weight-bold">
+                    {% endif %}
                     </div>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image" class="form-control" accept="image/png, image/jpeg">
             </div>
             {% endfor %}
           

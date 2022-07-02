@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% extends 'admindashboard.html' %}
+{% block content %}
+{% load static %}
 <html lang="en">
 <head>
     {% load static %}
@@ -11,8 +14,7 @@
     <title>Add teacher</title>
 </head>
 <body>
-    <div class="container">
-        
+    <div class="container col-lg-12">
         <div class="form">
             <div class="heading">
                 <h1>Add Teacher</h1>
@@ -71,3 +73,4 @@
 </form>
 </body>
 </html>
+{% endblock %}
