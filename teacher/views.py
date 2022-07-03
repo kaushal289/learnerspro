@@ -24,8 +24,6 @@ def register(request):
 def teacherdashboard(request):
     return render(request,"teacher/landingpage.html")
 
-def teachersubject(request):
-    return render(request, "teacher/teachersubject.html")
 
 def logout(request):
     request.session.clear()
@@ -55,14 +53,8 @@ def profileupdate(request,s_id):
     users=Teacher.objects.get(teacher_id=s_id)
     return render(request,"teacher/teacherprofile.html",{'users':[users]})
 
-
-def addsubject(request):
-    if request.method == "POST":
-        form = teachersubject(request.POST, request.FILES)
-        form.save()
-        return redirect("/teachersubject")
+def addsubjectpage(request):
     return render(request, "teacher/addsubject.html")
-
 
 def email(request):
     return render (request, "teacher/email.html")

@@ -76,6 +76,7 @@ def studentlogin(request):
                     if admin is not None:
                         request.session['username']=request.POST['username']
                         request.session['password']=request.POST['password'] 
+                        request.session['admin_id']=admin.admin_id
                         return render(request,"admin/addteacher.html")
                 except:
                     Pass 
