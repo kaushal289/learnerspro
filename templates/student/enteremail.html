@@ -1,12 +1,24 @@
-<form method="post">
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+
+{% load static %}
+<div class="container  d-flex  justify-content-center">
+<form method="post" class="d-flex justify-content-center" style="margin-top:10vh;margin-bottom:10vh;">
 
     {%csrf_token%}
+    <div class="row col-lg-6 justify-content-center">
 
-    <label >Enter your email address:</label>
+    <h1 >Enter your email address:</h1>
 
-    <input  name="email" />
+   
+    <input  name="email" style="margin-top:2vh;margin-bottom:2vh;font-size:20px; padding: revert;"/>
 
     
-   <input type="submit" value="Submit"/>
+   <input  type="submit" value="SUBMIT"  style="width: inherit;font-size:30px;padding: initial;
+   background-color:blue; color:white"/>
+    </div>
 
 </form>
+</div>
+{% endblock %}

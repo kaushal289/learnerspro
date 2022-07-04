@@ -59,14 +59,14 @@ def studentlogin(request):
             if teacher is not None:
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password'] 
-                return render(request,"teacher/landingpage.html")
+                request.session['teacher_id']=teacher.teacher_id
+                return render(request,"teacher/addsubject.html")
             
         except:
             try:
                 user=Student.objects.get(username=username,password=password)
                 request.session['username']=request.POST['username']
                 request.session['password']=request.POST['password']
-                request.session['student_id']=user.student_id
                 request.session['student_id']=user.student_id
                 users=Student.objects.get(student_id=request.session['student_id'])
                 return render(request,"student/landingpage.html",{'users':[users]})

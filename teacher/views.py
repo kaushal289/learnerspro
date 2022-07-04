@@ -30,27 +30,13 @@ def logout(request):
     return redirect('/')
 
 def teacherprofile(request,s_id):
-    try:
-        users=Teacher.objects.get(teacher_id=s_id)
-        return render(request,"teacher/teacherprofile.html",{'users':[users]})
-    except:
-        print("No Data Found")
-    return render(request,"teacher/teacherprofile.html",{'users':[users]})
-
-def profileupdate(request,s_id):
-    Teacher=Teacher.objects.get(teacher_id=s_id)
-    if request.method=="POST":
-        try:
-            if len(request.FILES) != 0:
-                if len(Teacher.image)>0:
-                    os.remove(Teacher.image.path)
-                Teacher.image=request.FILES['image']
-        except:
-            Teacher.image=request.FILES['image']
-    form=TeacherForm(request.POST, instance=Teacher)
-    form.save()
-    request.session['username']=request.POST['username']
     users=Teacher.objects.get(teacher_id=s_id)
+    return render(request,"teacher/teacherprofile.html",{'users':[users]})
+   
+def profileupdateteacher(request,s_id):
+    users=Teacher.objects.get(teacher_id=s_id)
+    form=TeacherForm(request.POST, instance=users)
+    form.save()
     return render(request,"teacher/teacherprofile.html",{'users':[users]})
 
 def addsubjectpage(request):

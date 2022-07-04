@@ -1,0 +1,17 @@
+h2{
+    text-align: center;
+}
+label{
+    font-size: 25px;
+    font-weight: bold;
+}
+select{
+    background-color: transparent;
+    color:rgb(0, 0, 0);
+   
+    font-size: 22px;
+}
+.sub{
+    font-size: 22px;
+    margin: 10px;
+}

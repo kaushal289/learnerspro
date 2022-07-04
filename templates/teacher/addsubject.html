@@ -12,25 +12,28 @@
      <link rel="stylesheet" href="{% static 'css/addsubject.css' %}">
 </head>
 <body>
-    <div class="small_div">
 
-        <div class="container">
+
+        <div class="col-lg-6 container">
             <br>
-            <h2>ADD NEW ENTRY</h2>
+            <h2>ADD NEW COURSE</h2>
             <hr>
 
             <form action="/addcourse" method="POST" enctype="multipart/form-data">
                 {%  csrf_token %}
-                <label class="form-group" for="title">Class : </label>
-                <select name="std_class" style="height:40px;">
+                <div class="row">
+                <label class="col-lg-3 form-group" for="title">Class : </label>
+                <select name="std_class" style="height:40px;" class="col-lg-2 sel">
                     <option value="6">6</option>
                     <option value="7">7</option>
                     <option value="8">8</option>
                     <option value="9">9</option>
                     <option value="10">10</option>
                 </select><br>
-                <label class="form-group" for="subject">Subject : </label>
-                <select name="subject" style="height:40px;">
+                </div>
+                <div class="row">
+                <label class="col-lg-3 form-group" for="subject">Subject : </label>
+                <select name="subject" style="height:40px;" class="col-lg-4 sel">
                     <option value="Science">Science</option>
                     <option value="Social studies">Social studies</option>
                     <option value="Maths">Maths</option>
@@ -38,14 +41,20 @@
                     <option value="Accounts">Accounts</option>
                     <option value="Computer">Computer</option>
                 </select><br>
-                <label class="form-group" for="incharge">Topic: </label>
-                <input class="form-control" type="text" name="topic"><br>
-                <label class="form-group">Content : </label>
-                <input type="file" name="content" class="form-control" />
-                <input type="submit" class="btn btn-success" value="Create">
+                </div>
+                <div class="row">
+                <label class="col-lg-3 form-group" for="incharge">Topic: </label>
+                <input class="col-lg-6 form-control" type="text" name="topic" required>
+                </div>
+                <div class="row">
+                <label class="col-lg-3 form-group">Content : </label>
+                <input type="file" name="content" class="col-lg-6 form-control" required/>
+                </div>
+                <div class="row justify-content-center">
+                <input type="submit" class="col-lg-4 btn btn-success sub" value="Create">
+                </div>
             </form>
         </div>
-    </div>
 </body>
 </html>
 
