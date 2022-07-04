@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .white a {
 	color: #fff;
 }
@@ -13,7 +16,10 @@ h4
     {
         font-weight: bold;
     }
-p { line-height: 1.6em; }
+p { line-height: 1.6em; 
+    font-size: large;
+    text-align: justify;
+}
 .btn-primary{
     background-color: #5a6ff5;
     border-color:#1a8bfb;
@@ -58,9 +64,10 @@ img
     }
 #feature
     {
-        background: #f8f8f8;
-        padding-top: 60px;
-        padding-bottom: 60px;
+        background: #ffffff;
+        padding:30px;
+        margin-top: 30px;
+
     }
 #feature p
     {
@@ -111,8 +118,8 @@ img
     {
         background: #f8f8f8;
         text-align: center;
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
 #pricing h2
     {
@@ -130,7 +137,7 @@ img
     }
 #pricing .pricing .pricing-title
     {
-        background: #87c0f2;
+        background: #00447f;
         color: #fff;
         font-weight: bold;
         padding: 30px;
@@ -206,9 +213,6 @@ img
         padding: 20px;
     }
 @media screen and ( max-width: 991px ) {
-    .templatemo-box {
-        margin-bottom: 30px;
-    }
     #pricing .active {
         bottom: 0;
     }
@@ -246,9 +250,52 @@ img
     color: black;
     text-align: center;
 }
-.templatemo-box{
-    border: 5px solid rgba(1, 22, 255, 0.379);
-}
 .images{
     height: 300px;
+}
+.featurimg{
+    height: 350px !important;
+    width: 400px !important;
+    
+}
+.fimg{
+    text-align: center;
+}
+#feature{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+#feature1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.content{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.fa-check-circle-o:before {
+    font-size: 40px;
+}
+.text-uppercase{
+    text-align: center;
+}
+.cc{
+    text-align: center;
+}
+.cd{
+    padding: 10px;
+}
+.cls{
+    margin: 10px;
+    box-shadow: rgba(29, 165, 255, 0.4) 0px 2px 4px, rgba(29, 165, 255, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+#pricing{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.about{
+    margin: 30px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.tital{
+    text-align: center;
 }

@@ -8,7 +8,7 @@ def addcourse(request):
         print(request.POST)
         form = Courseform(request.POST,request.FILES)
         form.save()
-        return redirect("/teachersubject")
+        return redirect("/allcourse")
     else:
         form = Courseform()
-    return render(request, "teacher/teachersubject.html", {'form': form})
+    return render(request, "teacher/addsubject.html", {'form': form})

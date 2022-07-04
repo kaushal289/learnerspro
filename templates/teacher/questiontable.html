@@ -22,7 +22,7 @@
                                     <td>{{question.subject}}</td>
                                     <td>{{question.question}}</td>
                                  <td>
-                                     <a href="/editcourse/{{course.course_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-success">Edit</button>{{customer.customer_id}}</a>
+                                     <a href="/editquestion/{{question.question_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-success">Edit</button></a>
                                      |
                                      <a href="/questiondelete/{{question.question_id}}" style="color:rgb(80, 214, 255)"><button class="btn btn-danger">Delete</button></a>
                                  </td>
@@ -38,12 +38,11 @@
                 <button class="btn btn-secondary p-1" name="prev">Previous</button>
                 {% endif %}
                 <input class="text-center p-1" value="{{page}}" name="page" style="width:30px !important;" readonly>
-                {% if pageItem == 8 %}
+                {% if pageItem == 6 %}
                 <button name="next" class="btn btn-secondary p-1">Next</button>
                 {% endif %}
                 </form>
                 </div>
             </div>
         </div>
-
 {% endblock %}

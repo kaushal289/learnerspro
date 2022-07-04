@@ -4,14 +4,18 @@
     <form  action="/profileupdate/{{request.session.student_id}}" method="POST"  class="registration-form" enctype="multipart/form-data">
    
     {% csrf_token %}
-    <div class="container rounded bg-white ">
-        <div class="row">
+    <div class="container rounded ">
+        <div class="row ">
             {% for user in users %}
-            <div class="col-md-3 border-right ">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <div class="col-md-3 border-right profimg">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5 ">
+                    {% if user.image|length > 0 %}
                     <img class="rounded-circle mt-5" width="200px" height="200px" src="{% static 'assets/' %}{{user.image}}" class="font-weight-bold">
+                    {% else %}
+                    <img class="rounded-circle mt-5" width="200px" height="200px" src="{% static 'img/profile.png' %}" class="font-weight-bold">
+                    {% endif %}
                     </div>
-                    <input type="file" name="image" class="form-control">
+                    <input type="file" name="image" class="form-control" accept="image/png, image/jpeg">
             </div>
             {% endfor %}
           
@@ -29,9 +33,9 @@
     <div class="row">
         <div class="col-lg-6 input-group md-form form-sm">
         </div>
-                <div class="p-3 ">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Edit Profile</h4>
+                <div class="p-3 update">
+                    <div class="headings">
+                        <h4 class="text-center">Edit Profile</h4>
                     </div>
                     <div class="row ">
                         {% for user in users %}
@@ -58,22 +62,37 @@
                             <input type="text" name="username" id="email" onfocusout="fn()" class="form-control" placeholder="email" value="{{user.username}}" hidden>
                             {% endfor %}
                         {% for user in users %}
-                        <div class="col-md-6"><label class="labels">Old Password:</label><input type="text" name="password" class="form-control" value="{{user.password}}"></div>
+                        <div class="col-md-6"><label class="labels">Old Password:</label><input type="password"  class="form-control" value="{{user.password}}"></div>
                         {% endfor %}
-                        <div class="col-md-6"><label class="labels">New Password:</label><input type="password" class="form-control" value="" ></div>
+                        <div class="col-md-6"><label class="labels">New Password:</label><input type="password" name="password" class="form-control" value="" required></div>
                     </div>
-                    
+                    <div class="row d-flex justify-content-center ">
+                        <div class="col-sm-6 btn-group m-3">
+                            <button  type="submit" class="btn btn-success ml-5" id="submit"><b>Update</b></button>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
     </div>
     </div>
-    <div class="row d-flex justify-content-center ">
-        <div class="col-sm-6 btn-group m-3">
-            <button  type="submit" class="btn btn-success ml-5" id="submit"><b>Update</b></button>
-        </div>
-    </div>
+    
         </form>
+        <script>
+            // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btns");
+        btns[0].classList="btns"
+        btns[1].classList="btns"
+        btns[2].classList="btns"
+        btns[3].classList="btns"
+        btns[4].classList="btns"
+        btns[5].classList="btns"
+        btns[6].classList="btns"
+        btns[7].classList="btns"
+        btns[8].classList="btns active1"
+        btns[9].classList="btns"
+        </script>
     
 {% endblock %}
 

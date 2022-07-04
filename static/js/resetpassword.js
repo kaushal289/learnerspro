@@ -9,7 +9,7 @@ form.addEventListener('submit' ,(e)  => {
         messages.push("Please enter a password.")
         newpassword.style.border="solid 4px red"
     }
-    else if(newpassword.value.length<=8){
+    else if(newpassword.value.length<5){
         messages.push("Password too short.")
         newpassword.style.border="solid 4px red"
     }

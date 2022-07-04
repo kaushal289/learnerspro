@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 
-<h1>Tickets</h1>
+<h1 style="text-align:center;">Tickets</h1>
         <div class="col-lg-12 d-flex justify-content-center tablebody table-responsive"> 
            
                      <table class="col-lg-10 table table-bordered table-hover table-striped">
@@ -41,6 +41,18 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            // Add active class to the current button (highlight it)
+        var header = document.getElementById("myDIV");
+        var btns = header.getElementsByClassName("btns");
+        btns[0].classList="btns list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        btns[1].classList="btns list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        btns[2].classList="btns list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        btns[3].classList="btns list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        btns[4].classList="btns list-group-item list-group-item-action bg-transparent second-text fw-bold"
+        btns[5].classList="btns list-group-item list-group-item-action bg-transparent second-text fw-bold active"
+        </script>
 
 
 

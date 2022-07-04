@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+
+{% load static %}
 <html lang="en">
 
 <head>
@@ -12,8 +16,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="form">
+    <div class="container cont">
+        <div class="form for">
             <div class="heading">
                 <h1>Ask your question</h1>
             </div>
@@ -22,8 +26,9 @@
                 <div class="wrap" id="form">
                     <div class="first">
                         <label>Your Name:</label>
-                        <input name="name" id="name" type="text" value="">
-                        
+                        {% for user in users %}
+                        <input name="name" id="name" type="text" value="{{user.username}}" readonly>
+                        {% endfor %}
                     </div>
                     <div class="last">
                         <label>Subject:</label>
@@ -40,13 +45,29 @@
                 <div class="wrap1">
                     <label>Question:</label>
                     <textarea name="question" id="question" type="text" value=""></textarea>
+                    <input name="student" value="{{request.session.student_id}}" hidden>
                 </div>
                 <div id ="nameerror"></div>
-                <button class="btn" type="submit" value="submit">Submit your question.</button>
+                <button class="btn1 d-flex d-flex align-items-center justify-content-center" type="submit" value="submit">Submit your question.</button>
                 <p>Note: You will recieve your asnwer once the allocated teacher has suubmitted it.</p>
             </form>
         </div>
     </div>
 </body>
-
+<script>
+    // Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btns");
+btns[0].classList="btns"
+btns[1].classList="btns"
+btns[2].classList="btns"
+btns[3].classList="btns"
+btns[4].classList="btns"
+btns[5].classList="btns"
+btns[6].classList="btns"
+btns[7].classList="btns active1"
+btns[8].classList="btns"
+btns[9].classList="btns"
+</script>
 </html>
+{% endblock %}

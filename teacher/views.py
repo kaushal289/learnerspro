@@ -1,5 +1,6 @@
 from select import select
 from django.shortcuts import render, redirect
+from student.forms import Questionform
 from teacher.models import Teacher
 from teacher.forms import TeacherForm
 import os
@@ -23,8 +24,6 @@ def register(request):
 def teacherdashboard(request):
     return render(request,"teacher/landingpage.html")
 
-def teachersubject(request):
-    return render(request, "teacher/teachersubject.html")
 
 def logout(request):
     request.session.clear()
@@ -54,14 +53,8 @@ def profileupdate(request,s_id):
     users=Teacher.objects.get(teacher_id=s_id)
     return render(request,"teacher/teacherprofile.html",{'users':[users]})
 
-
-def addsubject(request):
-    if request.method == "POST":
-        form = teachersubject(request.POST, request.FILES)
-        form.save()
-        return redirect("/teachersubject")
+def addsubjectpage(request):
     return render(request, "teacher/addsubject.html")
-
 
 def email(request):
     return render (request, "teacher/email.html")
@@ -97,6 +90,15 @@ def editcourse(request,c_id):
         print("No Data Found")
     return redirect ("/allcourse")
 
+def answer(request,a_id):
+    try:
+        course=Course.objects.get(course_id=a_id)
+        print(course)
+        return render(request, "teacher/editcourse.html", {'course':course})
+    except:
+        print("No Data Found")
+    return redirect ("/allcourse")
+
 def courseupdate(request,c_id):
     course=Course.objects.get(course_id=c_id)
     if request.method=="POST":
@@ -116,10 +118,35 @@ def deletecourse(request,c_id):
 
 def questionview(request):
     print(request)
-    questions=Question.objects.raw('select * from question')
-    return render(request,"teacher/questiontable.html", {'questions':questions})
+    if (request.method == "POST"):
+        page = int(request.POST['page'])
+        if ('prev' in request.POST):
+            page = page - 1
+        if ('next' in request.POST):
+            page = page + 1
+        tempOffSet = page - 1
+        offset = tempOffSet * 6
+        print(offset)
+    else:
+        offset = 0
+        page = 1
+    questions=Question.objects.raw('select * from question limit 6 offset % s', [offset])
+    pageItem = len(questions)
+    return render(request,"teacher/questiontable.html", {'questions':questions,'page': page, 'pageItem': pageItem})
 
 def questiondelete(request,q_id):
     question=Question.objects.get(question_id=q_id)
     question.delete()
+    return redirect ("/questionview")
+def editquestion(request,q_id):
+    try:
+        question=Question.objects.get(question_id=q_id)
+        return render(request, "teacher/answer.html", {'question':question})
+    except:
+        print("No Data Found")
+    return redirect ("/questionview")
+def updatequestion(request,q_id):
+    question=Question.objects.get(question_id=q_id)
+    form=Questionform(request.POST, instance=question)
+    form.save()
     return redirect ("/questionview")

@@ -20,6 +20,7 @@ class Question(models.Model):
     name=models.CharField(max_length=100)
     subject=models.CharField(max_length=100)
     question=models.CharField(max_length=1000)
+    student=models.ForeignKey(Student,on_delete=models.CASCADE)
     class Meta:
         db_table="question"
 
