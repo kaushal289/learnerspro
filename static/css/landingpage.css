@@ -1,0 +1,301 @@
+*{
+    box-sizing: border-box;
+}
+.white a {
+	color: #fff;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+h1,
+h2,
+h3,
+h4
+    {
+        font-weight: bold;
+    }
+p { line-height: 1.6em; 
+    font-size: large;
+    text-align: justify;
+}
+.btn-primary{
+    background-color: #5a6ff5;
+    border-color:#1a8bfb;
+}
+img
+    {
+        max-width: 100%;
+        height: auto;
+    }
+.overlay
+    {
+       width: 100%;
+       height: 100%;
+       background-color:rgba(153, 206, 253, 0.7);
+       padding-top: 90px;
+       padding-bottom: 90px;
+    }
+@media (min-width: 768px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 900px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+  }
+}
+#divider
+    {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+#divider h3
+    {
+        font-size: 20px;
+    }
+#feature
+    {
+        background: #ffffff;
+        padding:30px;
+        margin-top: 30px;
+
+    }
+#feature p
+    {
+        padding-top: 10px;
+    }
+#feature span
+    {
+        float: left;
+    }
+#feature .fa
+    {
+        background: #649bf5;
+        border-radius: 50%;
+        color: #fff;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin-right: 20px;
+    }
+#feature1
+    {
+            padding-top: 40px;
+        padding-bottom: 40px;
+    }
+#feature1 p
+    {
+        padding-top: 10px;
+    }
+#feature1 span
+    {
+        float: left;
+    }
+#feature1 .fa
+    {
+        background: #649bf5;
+        border-radius: 50%;
+        color: #fff;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin-right: 20px;
+    }
+#pricing
+    {
+        background: #f8f8f8;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+#pricing h2
+    {
+        padding-bottom: 60px;
+    }
+#pricing .pricing
+    {
+        background: #fff;
+        border-radius: 5px;
+    }
+#pricing .active
+    {
+        position: relative;
+        bottom: 20px;
+    }
+#pricing .pricing .pricing-title
+    {
+        background: #00447f;
+        color: #fff;
+        font-weight: bold;
+        padding: 30px;
+        border-radius: 5px  5px 0 0;
+    }
+#pricing .pricing .pricing-title p
+    {
+        font-size: 20px;
+    }
+#pricing .pricing ul
+    {
+        padding: 0;
+        margin: 0;
+    }
+#pricing .pricing ul li
+    {
+        display: block;
+        list-style: none;
+        padding: 16px;
+    }
+#pricing .pricing .btn
+    {
+        background: transparent;
+        border: 1px solid #291ef8;
+        border-radius: 3px;
+        color: #0b80f5;
+        font-weight: bold;
+        padding-right: 40px;
+        padding-left: 40px;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+    }
+#pricing .pricing .btn:hover {
+    background: #0724b7;
+    color: #fff;
+}
+#contact
+    {
+        background: url('../img/contact-bg.jpeg') no-repeat;
+        background-size: cover;
+        color: #fff;
+        height: 510px;
+
+    }
+#contact h2
+    {
+        padding-bottom: 0px;
+
+    }
+
+#contact address .fa
+    {
+        background: #2185dd;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin-top: 5px;
+        margin-right: 5px;
+    }
+    h2 {
+        font-size: 30px;
+        color: #000000;
+
+      }
+.footer
+    {
+        background: #fff;
+        font-weight: 400;
+        text-align: center;
+        padding: 20px;
+    }
+@media screen and ( max-width: 991px ) {
+    #pricing .active {
+        bottom: 0;
+    }
+    .pricing {
+        margin-bottom: 20px;
+    }
+    #feature img, #download img {
+        margin-top: 30px;
+    }
+    #feature1 img {
+        margin-bottom: 30px;
+    }
+}
+@media screen and ( max-width: 767px ) {
+    .navbar-default .nav li a {
+        height: auto;
+        line-height: 2em;
+    }
+    #feature, #pricing, #download {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    #contact .overlay {
+        padding-top: 40px;
+    }
+}
+@media screen and ( max-width: 360px ){
+    .pricing
+        {
+            padding-bottom: 40px;
+        }
+}
+
+.title{
+    color: black;
+    text-align: center;
+}
+.images{
+    height: 300px;
+}
+.featurimg{
+    height: 350px !important;
+    width: 400px !important;
+    
+}
+.fimg{
+    text-align: center;
+}
+#feature{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+#feature1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.content{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.fa-check-circle-o:before {
+    font-size: 40px;
+}
+.text-uppercase{
+    text-align: center;
+}
+.cc{
+    text-align: center;
+}
+.cd{
+    padding: 10px;
+}
+.cls{
+    margin: 10px;
+    box-shadow: rgba(29, 165, 255, 0.4) 0px 2px 4px, rgba(29, 165, 255, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+#pricing{
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.about{
+    margin: 30px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+.tital{
+    text-align: center;
+}

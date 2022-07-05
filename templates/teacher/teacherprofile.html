@@ -1,0 +1,58 @@
+{% extends "teacherdashboard.html" %}
+{% block content %}
+{% load static %}
+    <form  action="/profileupdateteacher/{{request.session.teacher_id}}" method="POST" >
+   
+    {% csrf_token %}
+    <div class="col-lg-6 container rounded ">
+        
+    <div class="row">
+        <div class="col-lg-6 input-group md-form form-sm">
+        </div>
+                <div class="p-3 update">
+                    <div class="headings">
+                        <h4 class="text-center">Edit Profile</h4>
+                    </div>
+                    <div class="row ">
+                        {% for user in users %}
+                        <div class="col-md-6"><label class="labels">First Name:</label>
+                        <input type="text" name="teacher_firstname" id="teacher_firstname" onfocusout="fn()" class="form-control" placeholder="user Name" value="{{user.teacher_firstname}}" required>
+                        {% endfor %}
+                        </div>
+                        {% for user in users %}
+                        <div class="col-md-6"><label class="labels">Last Name:</label>
+                            <input type="text" name="teacher_lastname" id="teacher_lastname" onfocusout="fn()" class="form-control" placeholder="teacher_lastname" value="{{user.teacher_lastname}}" required>
+                        {% endfor %}
+                        </div>
+                        {% for user in users %}
+                        <div class="col-md-12"><label class="labels">Contact Number:</label>
+                            <input type="text" name="phone_number" id="phone_number" onfocusout="fn()" class="form-control" placeholder="Email" value="{{user.phone_number}}" required>
+                            {% endfor %}
+                        </div>
+                        {% for user in users %}
+                        <div class="col-md-12"><label class="labels">Email:</label>
+                            <input type="text" name="email" id="email" onfocusout="fn()" class="form-control" placeholder="email" value="{{user.email}}" required>
+                            {% endfor %}
+                        </div>
+                        {% for user in users %}
+                            <input type="text" name="username" id="email" onfocusout="fn()" class="form-control" placeholder="email" value="{{user.username}}" hidden>
+                            {% endfor %}
+                        {% for user in users %}
+                        <div class="col-md-6"><label class="labels">Old Password:</label><input type="password"  class="form-control" value="{{user.password}}"></div>
+                        {% endfor %}
+                        <div class="col-md-6"><label class="labels">New Password:</label><input type="password" name="password" class="form-control" value="" required></div>
+                    </div>
+                    <div class="row d-flex justify-content-center ">
+                        <div class="col-sm-6 btn-group m-3">
+                            <button  type="submit" class="btn btn-success ml-5" id="submit"><b>Update</b></button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</form>
+    
+{% endblock %}
+

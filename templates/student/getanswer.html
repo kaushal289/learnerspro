@@ -1,0 +1,55 @@
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/question.css' %}">
+    <script defer src="{% static 'js/question.js'%}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center">
+        <div class="row col-lg-6 d-flex justify-content-center answers">
+        <div class="col-lg-8 ">
+            <h1> Answers to your Questions<br></h1>
+        </div>
+        {% for answer in answers %}
+        <div class="col-lg-12 d-flex justify-content-center">
+                    
+                
+                <textarea  class="all" readonly>Question:{{answer.question}}</textarea>
+                
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    </div>
+</body>
+<script>
+    // Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btns");
+btns[0].classList="btns"
+btns[1].classList="btns"
+btns[2].classList="btns"
+btns[3].classList="btns"
+btns[4].classList="btns"
+btns[5].classList="btns"
+btns[6].classList="btns"
+btns[7].classList="btns active1"
+btns[8].classList="btns"
+btns[9].classList="btns"
+</script>
+</html>
+
+{% endblock %}

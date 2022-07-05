@@ -1,0 +1,196 @@
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/landingpage.css' %} ">
+<section id="home" class="home">
+    <div class="content">
+        <h1>Discover a new way of learning</h1>
+        <p class="tital">Learn at ease, Build your future right here<br> Don't waste time register.</p>
+        <div class="home-btn">
+        </div>
+    </div>
+</section>
+
+<section id="feature">
+    <div class="container-fluid ">
+        <div class="row justify-content-center d-flex align-items-center">
+            <div class="col-md-6 wow fet" data-wow-delay="0.6s">
+                <h2 class="text-uppercase">Our Website Features</h2>
+                <p>Learners' Pro is a web-based project that provides E-learning platform to students. 
+                    New approaches are typically thought to have a significant impact on education. Talking of features, 
+                    this website has three distinct dashboards for students, teachers, and admins. 
+                </p>
+                <p><span><i class="fa">☑</i></span>Students can obtain educational materials.</p>
+                <p><span><i class="fa">☑</i></span>Teachers can provide educational materials.</p>
+                <p><span><i class="fa">☑</i></span>Admins can manage both students and teachers.</p>
+            </div>
+            <div class="col-md-5 fimg">
+                <img src="static/img/features.png" class="img-responsive img-rounded featurimg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="feature1">
+    <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+            <div class="col-md-5 wow fadeInUp fet fimg" data-wow-delay="0.6s">
+                <img src="static/img/time.png" class="img-responsive img-rounded featurimg" alt="feature img">
+            </div>
+            <div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                <h2 class="text-uppercase">Our main features for student</h2>
+                <p>You can create an account by simply filling the registration form.
+                    After registration only you can have access to the courses.
+                </p>
+                <p><i class="fa">☑</i>24 hours availability(You can access this website any time you like.)</p>
+                <p><i class="fa">☑</i>You can have access to the content provided by teacher after login.</p>
+                <p><i class="fa">☑</i>You can also download the course content(photos, document, videos and so on) you like.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end feature1 -->
+
+<!-- start pricing -->
+<section id="pricing">
+    <div class="container-fluid ">
+        <div class="row justify-content-center d-flex align-items-center">
+            <div class="col-md-12 wow bounceIn">
+                <h2 class="text-uppercase">Our Courses</h2>
+            </div>
+            <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
+                <div class="pricing active">
+                    <div class="pricing-title text-uppercase">
+                        <h4>Foundation Course</h4>
+                        <p  class="cc">CLASS 6</p>
+                    </div>
+                    <ul>
+                        <p  class="cd"><br>We provide foundation courses that will cover entire topics of Maths, English, 
+                            Social, Computer and Science subjects and build a strong foundation for examinations.
+                        </p>
+
+                    </ul>
+                    {% if request.session.username %}
+                    <a href="/class6"><button class="btn btn-primary text-uppercase" >Open Class 6 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
+                <div class="pricing active">
+                    <div class="pricing-title text-uppercase">
+                        <h4>Foundation Course</h4>
+                        <p  class="cc">CLASS 7</p>
+                    </div>
+                    <ul>
+                        <p  class="cd">We provide foundation courses that will cover entire topics of Maths, English, 
+                            Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
+
+                    </ul>
+                    {% if request.session.username %}
+                    <a href="/class7"><button class="btn btn-primary text-uppercase" >Open Class 7 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
+                <div class="pricing active">
+                    <div class="pricing-title text-uppercase">
+                        <h4>Foundation Course</h4>
+                        <p  class="cc">CLASS 8</p>
+                    </div>
+                    <ul>
+                        <p  class="cd">We provide foundation courses that will cover entire topics of Maths, 
+                            English, Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
+
+                    </ul>
+                    {% if request.session.username %}
+                    <a href="/class8"><button class="btn btn-primary text-uppercase" >Open Class 8 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
+                <div class="pricing active">
+                    <div class="pricing-title text-uppercase">
+                        <h4>Foundation Course</h4>
+                        <p class="cc">CLASS 9</p>
+                    </div  class="cc">
+                    <ul>
+                        <p  class="cd">We provide foundation courses that will cover entire topics of Maths, 
+                            English, Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
+
+                    </ul>
+                    {% if request.session.username %}
+                    <a href="/class9"><button class="btn btn-primary text-uppercase" >Open Class 9 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-2 wow fadeIn cls" data-wow-delay="0.6s">
+                <div class="pricing active">
+                    <div class="pricing-title text-uppercase">
+                        <h4>Foundation Course</h4>
+                        <p  class="cc">CLASS 10</p>
+                    
+                    </div>
+                    <ul>
+                        <p  class="cd">We provide foundation courses that will cover entire topics of Maths, 
+                            English, Social, Account, Computer and Science subjects and build a strong foundation for examinations.</p>
+
+                    </ul>
+                    {% if request.session.username %}
+                    <a href="/class10"><button class="btn btn-primary text-uppercase" >Open Class 10 Courses</button></a>
+                    {% else %}
+                    <a href="/studentlogin"><button class="btn btn-primary text-uppercase" >Sign up</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<div class="row">
+    <div class="row d-flex justify-content-center about" id="about">
+              <div class="col-md-4 mt-4">
+                        <h2 style="color:black;text-align:center;">About Us</h2> <br>
+                        <p>Learner’s pro is not just a change of technology. It is part of a redefinition 
+                            of how we as a species transmit knowledge, skills, and values to younger generations 
+                            of students. Learners will have access to refined and important knowledge.
+                            Through the means of documents, videos images powerpont and so on students will get the 
+                            knowledge provided by the teacher. In many fields, e-learning has become the default way to 
+                            conduct training or to provide education. Learners Pro is one of the example of it.</p>
+              </div>
+              <div class="col-md-6 wow fadeInUp d-flex justify-content-center align-items-center" data-wow-delay="0.6s">
+                  <img src="static/img/aboutus.png" class="img-responsive img-rounded images" alt="feature img">
+              </div>                      
+  </div>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.singlePageNav.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+<script>
+    $(window).load(function () {
+        $('.preloader').fadeOut(1000);
+    });
+
+    $(function () {
+        new WOW().init();
+        $('.templatemo-nav').singlePageNav({
+            offset: 70
+        });
+
+        $('.navbar-collapse a').click(function () {
+            $(".navbar-collapse").collapse('hide');
+        });
+    })
+</script>
+</body>
+{% endblock %}

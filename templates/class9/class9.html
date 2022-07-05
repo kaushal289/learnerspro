@@ -1,0 +1,108 @@
+{% extends "studentdashboard.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font Awesome Cdn -->
+	<script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+
+	<!-- Bootstrap cdn -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/studentsubject.css' %}">
+    <title>Subject</title>
+</head>
+<body>
+    <div class="super_container">
+        <div class="banner">
+			<div class="container">
+				<div class="row">
+					<h1> Grade 9</h1>
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/science1.png);">
+							<div class="banner_category">
+								<a href="/class9science">Science</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/social1.png);">
+							<div class="banner_category">
+								<a href="/class9social">Social Studies</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center" 
+                            style="background-image: url(/static/img/maths1.png);">
+							<div class="banner_category">
+								<a href="/class9math">Maths</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+        <div class="banner1">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/english1.png);">
+							<div class="banner_category">
+								<a href="/class9english">English</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center"
+							style="background-image: url(/static/img/accounts.png);">
+							<div class="banner_category">
+								<a href="/class9account">Accounts</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+						<div class="banner_item align-item-center" 
+                            style="background-image: url(/static/img/computer1.png);">
+							<div class="banner_category">
+								<a href="/class9computer">Computer</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+    </div>
+    
+</body>
+<script>
+    // Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btns");
+btns[0].classList="btns"
+btns[1].classList="btns active1"
+btns[2].classList="btns"
+btns[3].classList="btns"
+btns[4].classList="btns"
+btns[5].classList="btns active1"
+btns[6].classList="btns"
+btns[7].classList="btns"
+btns[8].classList="btns"
+btns[9].classList="btns"
+</script>
+</html>
+{% endblock %}

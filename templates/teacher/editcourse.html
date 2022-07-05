@@ -1,0 +1,63 @@
+{% extends 'teacherdashboard.html' %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add_New subj</title>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'css/addsubject.css' %}">
+</head>
+<body>
+
+
+        <div class="col-lg-6 container">
+            <br>
+            <h2>ADD NEW COURSE</h2>
+            <hr>
+
+            <form  action="/courseupdate/{{course.course_id}}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                <label class="col-lg-3 form-group" for="title">Class : </label>
+                <select name="std_class" style="height:40px;" class="col-lg-2 sel" value="{{course.std_class}}" >
+                    <option value="{{course.std_class}}">{{course.std_class}}</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select><br>
+                </div>
+                <div class="row">
+                <label class="col-lg-3 form-group" for="subject">Subject : </label>
+                <select name="subject" style="height:40px;" class="col-lg-4 sel" value="{{course.subject}}">
+                    <option value="{{course.subject}}">{{course.subject}}</option>
+                    <option value="Science">Science</option>
+                    <option value="Social studies">Social studies</option>
+                    <option value="Maths">Maths</option>
+                    <option value="English">English</option>
+                    <option value="Accounts">Accounts</option>
+                    <option value="Computer">Computer</option>
+                </select><br>
+                </div>
+                <div class="row">
+                <label class="col-lg-3 form-group" for="incharge">Topic: </label>
+                <input class="col-lg-6 form-control" type="text" name="topic" value="{{course.topic}}" required>
+                </div>
+                <div class="row">
+                <label class="col-lg-3 form-group">Content : </label>
+                <input type="file" name="content" class="col-lg-6 form-control" value="{{course.content}}" required/>
+                </div>
+                <div class="row justify-content-center">
+                <input type="submit" class="col-lg-4 btn btn-success sub" value="Update">
+                </div>
+            </form>
+        </div>
+</body>
+</html>
+
+{% endblock %}

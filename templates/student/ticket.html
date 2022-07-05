@@ -1,0 +1,62 @@
+{% extends "studentdashboard.html" %}
+{% block content %}
+{% load static %}
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/ticket.css' %}">
+    <script defer src="{% static 'js/ticket.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="heading">
+                <h1>Raise ticket</h1>
+            </div>
+            <form id="form" action="" method="post">
+                {% csrf_token %}
+                <div class="wrap" id="form">
+                    <div class="last">
+                        <label>Topic:</label>
+                        <select name="topic">
+                            <option>Complain</option>
+                            <option>Enquiry</option>
+                            <option>Upgrades on the page</option>
+                            <option>Bugs</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="wrap1">
+                    <label>Summary:</label>
+                    <textarea name="summary" id="summary" type="text" value="" placeholder="Additional Information"></textarea>
+                </div>
+                <div id ="nameerror"></div>
+                <button class="btn5 d-flex align-items-center justify-content-center" type="submit" value="submit">Open Ticket</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    // Add active class to the current button (highlight it)
+var header = document.getElementById("myDIV");
+var btns = header.getElementsByClassName("btns");
+btns[0].classList="btns"
+btns[1].classList="btns"
+btns[2].classList="btns"
+btns[3].classList="btns"
+btns[4].classList="btns"
+btns[5].classList="btns"
+btns[6].classList="btns"
+btns[7].classList="btns"
+btns[8].classList="btns"
+btns[9].classList="btns active1"
+</script>
+</html>
+{% endblock %}

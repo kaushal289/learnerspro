@@ -1,0 +1,30 @@
+{% extends 'teacherdashboard.html' %}
+{% block content %}
+{% load static %}
+{% load static %}
+    <form  action="/updatequestion/{{question.question_id}}" method="POST"  class="registration-form" enctype="multipart/form-data">
+   
+    {% csrf_token %}
+    <div class="row d-flex justify-content-center ">
+    <input name="name" value="{{question.name}}" hidden></input>
+    <input name="subject" value="{{question.subject}}" hidden></input>
+    <input name="student" value="{{question.student_id}}" hidden></input>
+    <textarea name="question" style="width:100vh; font-size:20px; height:30vh;">
+{{question.question}}?
+Answer:
+    </textarea>
+</div>
+    
+    <div class="row d-flex justify-content-center ">
+        <div class="col-sm-6 btn-group m-3">
+            <button  type="submit" class="btn btn-success ml-5" id="submit"><b>Update</b></button>
+        </div>
+    </div>
+        </form>
+
+
+
+
+
+
+{% endblock %}
