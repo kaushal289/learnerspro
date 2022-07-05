@@ -23,6 +23,9 @@ from django.utils.encoding import force_str, force_bytes, DjangoUnicodeDecodeErr
 from django.core.mail import EmailMessage
 # Create your views here.
 def studentdashboard(request):
+    
+    # print (request.session.username)
+    print(request.user)
     try:
         users=Student.objects.get(student_id=request.session['student_id'])
         return render(request,"student/landingpage.html",{'users':[users]})
