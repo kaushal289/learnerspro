@@ -3,6 +3,12 @@
 {% load static %}
 
 <h1 style="text-align:center;">Questions</h1>
+{% for message in messages %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>Done! </strong>{{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
         <div class="col-lg-12 d-flex justify-content-center tablebody table-responsive"> 
            
                      <table class="col-lg-10 table table-bordered table-hover table-striped">

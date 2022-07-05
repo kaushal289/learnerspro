@@ -1,3 +1,4 @@
+import re
 from select import select
 from django.shortcuts import render, redirect
 from student.forms import Questionform
@@ -9,6 +10,7 @@ import os
 from addcourse.forms import *
 from addcourse.models import *
 from student.models import Question
+from django.contrib import messages
 
 # Create your views here.
 def register(request):
@@ -37,6 +39,7 @@ def profileupdateteacher(request,s_id):
     users=Teacher.objects.get(teacher_id=s_id)
     form=TeacherForm(request.POST, instance=users)
     form.save()
+    messages.success(request, "Profile updated successfully")
     return render(request,"teacher/teacherprofile.html",{'users':[users]})
 
 def addsubjectpage(request):
@@ -100,6 +103,7 @@ def courseupdate(request,c_id):
 def deletecourse(request,c_id):
     course=Course.objects.get(course_id=c_id)
     course.delete()
+    messages.success(request, "Course Deleted.")
     return redirect ("/allcourse")
 
 def questionview(request):
@@ -123,6 +127,7 @@ def questionview(request):
 def questiondelete(request,q_id):
     question=Question.objects.get(question_id=q_id)
     question.delete()
+    messages.success(request, "Question Deleted Successfully")
     return redirect ("/questionview")
 def editquestion(request,q_id):
     try:
@@ -135,4 +140,5 @@ def updatequestion(request,q_id):
     question=Question.objects.get(question_id=q_id)
     form=Questionform(request.POST, instance=question)
     form.save()
+    messages.success(request, "Answer submitted successfully.")
     return redirect ("/questionview")

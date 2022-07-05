@@ -1,9 +1,11 @@
+import imp
 from django.shortcuts import render, redirect
 from alladmin.forms import AdminForm
 from alladmin.models import Admin
 from student.models import Student, Ticket
 from teacher.forms import TeacherForm, Teacher
 from teacher.models import Teacher
+from django.contrib import messages
 # Create your views here.
 def admindash(request):
     return render(request, "admindashboard.html")
@@ -48,6 +50,7 @@ def ticketview(request):
 def ticketdelete(request,t_id):
     ticket=Ticket.objects.get(ticket_id=t_id)
     ticket.delete()
+    messages.success(request, "Deleted Successfully")
     return redirect ("/ticketview")
 
 def addteacher(request):
@@ -97,9 +100,11 @@ def studentview(request):
 def teacherdelete(request,td_id):
     teacher=Teacher.objects.get(teacher_id=td_id)
     teacher.delete()
+    messages.success(request, "Teacher account deleted successfully.")
     return redirect ("/teacherview")
 
 def studentdelete(request,td_id):
     student=Student.objects.get(student_id=td_id)
     student.delete()
+    messages.success(request, "Student account deleted successfully.")
     return redirect ("/studentview")

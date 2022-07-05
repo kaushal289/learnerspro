@@ -13,6 +13,12 @@
                     <div class="headings">
                         <h4 class="text-center">Edit Profile</h4>
                     </div>
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Done!</strong>{{message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                    {% endfor %}
                     <div class="row ">
                         {% for user in users %}
                         <div class="col-md-6"><label class="labels">First Name:</label>
