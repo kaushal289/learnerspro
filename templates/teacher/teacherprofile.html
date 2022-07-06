@@ -6,18 +6,22 @@
     {% csrf_token %}
     <div class="col-lg-6 container rounded ">
         
+
     <div class="row">
         <div class="col-lg-6 input-group md-form form-sm">
         </div>
+
                 <div class="p-3 update">
                     <div class="headings">
                         <h4 class="text-center">Edit Profile</h4>
                     </div>
+
                     {% for message in messages %}
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Done!</strong>{{message}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                      </div>
+                     
                     {% endfor %}
                     <div class="row ">
                         {% for user in users %}
