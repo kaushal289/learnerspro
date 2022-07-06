@@ -4,6 +4,7 @@
 {% load static %}
     <form  action="/updatequestion/{{question.question_id}}" method="POST"  class="registration-form" enctype="multipart/form-data">
    
+        
     {% csrf_token %}
     <div class="row d-flex justify-content-center ">
     <input name="name" value="{{question.name}}" hidden></input>

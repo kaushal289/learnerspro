@@ -16,6 +16,7 @@ def addadmin(request):
         form = AdminForm(request.POST)
         form.save()
         return redirect("/addteacher")
+    
     else:
         form = AdminForm()
     return render(request, "admin/addadmin.html", {'form': form})
