@@ -31,6 +31,7 @@ def adminupdate(request,s_id):
     form.save()
     return render (request, "admin/updatepassword.html",{'admin':[admin]})
 
+
 def ticketview(request):
     if (request.method == "POST"):
         page = int(request.POST['page'])
@@ -48,11 +49,13 @@ def ticketview(request):
     pageItem = len(tickets)
     return render(request,"admin/tickettable.html", {'tickets':tickets,'page': page, 'pageItem': pageItem})
 
+
 def ticketdelete(request,t_id):
     ticket=Ticket.objects.get(ticket_id=t_id)
     ticket.delete()
     messages.success(request, "Deleted Successfully")
     return redirect ("/ticketview")
+
 
 def addteacher(request):
     if request.method == "POST":

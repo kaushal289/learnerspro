@@ -15,6 +15,8 @@ class Student(models.Model):
     class Meta:
         db_table="student"
 
+
+
 class Question(models.Model):
     question_id=models.AutoField(auto_created=True, primary_key=True)
     name=models.CharField(max_length=100)
@@ -23,6 +25,7 @@ class Question(models.Model):
     student=models.ForeignKey(Student,on_delete=models.CASCADE)
     class Meta:
         db_table="question"
+        
 
 class Ticket(models.Model):
     ticket_id=models.AutoField(auto_created=True, primary_key=True)
