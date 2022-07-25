@@ -14,7 +14,7 @@ development of this project (javatpoint, 2022). Git hub is used storing, trackin
 collaborating codes among the team members. Heroku (Cloud Application Platform) is used to 
 deploy the website in the server. The figures below indicates the various things used in the 
 project.
-<h2 align="left">Screen short of importent things of project:</h2>
+<h2 align="left">Screen short of important things of project:</h2>
 <img src="first.png"/>
 <img src="git.png"/>
 <img src="codes.png"/>
