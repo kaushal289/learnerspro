@@ -15,6 +15,9 @@ collaborating codes among the team members. Heroku (Cloud Application Platform) 
 deploy the website in the server. The figures below indicates the various things used in the 
 project.
 <h2 align="left">Screen short of main page of project:</h2>
-<img src="s7.PNG"/>
+<img src="first.PNG"/>
+<img src="git.PNG"/>
+<img src="codes.PNG"/>
+<img src="trello.PNG"/>
 <h2 align="left">Aim </h2>
 Providing a platform for students to improve their learning abilities through the utilization of E-learning.
