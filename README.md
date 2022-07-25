@@ -14,10 +14,10 @@ development of this project (javatpoint, 2022). Git hub is used storing, trackin
 collaborating codes among the team members. Heroku (Cloud Application Platform) is used to 
 deploy the website in the server. The figures below indicates the various things used in the 
 project.
-<h2 align="left">Screen short of main page of project:</h2>
+<h2 align="left">Screen short of importent things of project:</h2>
 <img src="first.png"/>
-<img src="git.PNG"/>
-<img src="codes.PNG"/>
-<img src="trello.PNG"/>
+<img src="git.png"/>
+<img src="codes.png"/>
+<img src="trello.png"/>
 <h2 align="left">Aim </h2>
 Providing a platform for students to improve their learning abilities through the utilization of E-learning.
